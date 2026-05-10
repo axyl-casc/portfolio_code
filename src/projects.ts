@@ -96,7 +96,7 @@ export const projects: Project[] = [
     slug: 'axyl-casc-portfolio-website',
     title: 'axyl-casc.github.io (Portfolio Website)',
     description: 'The source repository for this portfolio website, built with React, TypeScript, and Tailwind CSS.',
-    projectUrl: 'https://github.com/axyl-casc/axyl-casc.github.io',
+    projectUrl: 'https://github.com/axyl-casc/portfolio_code',
     section: 'other',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Portfolio', 'Web Development', 'Software Development']
   },
