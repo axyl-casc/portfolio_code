@@ -18,6 +18,8 @@ Thumbs.db  # Windows
 *.godot/imported/
 .export/
 
+dist/
+
 # Environment and configuration files
 .env
 *.local
