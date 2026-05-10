@@ -1,0 +1,7 @@
+Linkedin Header: Software Developer | Building Scalable and User Focused Applications | Full Stack Development
+
+
+Infinite Mind Pictures text: As a Web Development Intern at Infinite Mind Pictures, I helped lead the development of a new internal wiki to improve organization and support across the team. My work included enhancing user experience, refining visual design, and creating a resource portal to assist our neurodivergent community and partners. I also created a Java programming course for kids using Robocode, designing interactive lessons and activities to introduce core programming concepts. This project supported Infinite Mind’s mission to foster accessibility and inclusion in the gaming space.
+
+
+Mount Royal University Text: Graduate of Mount Royal University with a degree in Computer Science and a Mathematics cognate focused on statistics, network science, and analytical problem-solving. Experienced in research-driven projects, including data analysis presentations at MRU Research Days and the Alberta Mathematics Dialogue, alongside applied AI, web development, and game development work. Completed a senior project focused on developing a Go AI, with a strong interest in building transparent, well-engineed systems that connect theoretical concepts with practical software applications.

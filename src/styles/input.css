@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom classes */
+header {
+    @apply bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 text-white p-8 rounded-b-lg shadow-lg;
+}
+
+main {
+    @apply container mx-auto p-8 space-y-12;
+}
+
+footer {
+    @apply bg-gray-900 text-white p-4 mt-8 text-center;
+}
+
+.project-card {
+    @apply block p-4 bg-white rounded border border-gray-300 shadow hover:bg-gray-100 hover:border-blue-600 transform hover:-translate-y-1 hover:shadow-lg transition;
+}
