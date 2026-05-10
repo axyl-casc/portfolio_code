@@ -9,7 +9,7 @@ export const educationItems: EducationItem[] = [
     title: 'Bachelor of Science – Computer Science',
     meta: 'Mount Royal University · September 2020 – May 2026 · Calgary, AB',
     details: [
-      'GPA: 3.3 / 4.0.',
+      'Program GPA: 3.3 / 4.0.',
       'Completed a Computer Science degree with a Mathematics cognate focused on statistics, graph theory, and network science.',
       'Worked on projects involving AI, software development, data visualization, game development, and web technologies.',
       'Presented research and technical projects at MRU Research Days and the Alberta Mathematics Dialogue.',
