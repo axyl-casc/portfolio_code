@@ -109,9 +109,10 @@ export function HomePage() {
           <div className="card-body">
             <h3 className="card-title text-base">Backend &amp; Databases</h3>
             <p className="text-sm text-base-content/75">
-              MySQL, MariaDB, Microsoft Access, database modelling, SQL querying,
+              MySQL, MariaDB, Microsoft Access, Oracle SQL, database modelling, SQL querying,
               stored procedures, data integrity management, backend game logic,
-              SQL integration, and database-backed application development.
+              SQL integration, API integration, REST, JSON, XML, SFTP, and
+              database-backed application development.
             </p>
           </div>
         </div>
@@ -199,8 +200,8 @@ export function HomePage() {
             <h3 className="card-title text-base">DevOps &amp; Workflow</h3>
             <p className="text-sm text-base-content/75">
               Git-based collaboration, branch-based workflows, code review
-              practices, version control hygiene, SDLC, unit tests, and
-              iterative delivery across personal and team projects.
+              practices, version control hygiene, SDLC execution, agile, unit
+              tests, and iterative delivery across personal and team projects.
             </p>
           </div>
         </div>
