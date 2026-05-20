@@ -39,7 +39,7 @@ export const projects: Project[] = [
     description: 'Recreated a classic arcade game using C and assembly, leveraging efficient memory management on limited hardware.',
     projectUrl: 'https://github.com/axyl-casc/DefenderRemake/tree/main?tab=readme-ov-file#atari-st-game---defender',
     section: 'featured',
-    tags: ['C', 'Assembly', 'Game Development', 'Software Development']
+    tags: ['C/C++', 'Assembly', 'Game Development', 'Software Development']
   },
   {
     slug: 'linux-shell-development',
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     description: 'Built a custom shell in C, handling concurrent commands and inter-process communication for a streamlined command-line experience.',
     projectUrl: 'https://github.com/axyl-casc/linux-shell?tab=readme-ov-file#linux-shell',
     section: 'featured',
-    tags: ['C', 'Systems Programming', 'Concurrency', 'Software Development']
+    tags: ['C/C++', 'Systems Programming', 'Concurrency', 'Software Development']
   },
   {
     slug: 'cpu-scheduler',
