@@ -222,8 +222,7 @@ export function HomePage() {
 
       <div className="flex flex-wrap justify-center gap-2">
         {[
-          'C++',
-          'C',
+          'C/C++',
           'Python',
           'React',
           'NodeJS',
