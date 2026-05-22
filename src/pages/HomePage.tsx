@@ -186,7 +186,7 @@ export function HomePage() {
             <p className="text-sm text-base-content/75">
               Docker, Git, PyCharm, Eclipse, Android Studio, Panda3D, Linux,
               Debian, PowerShell, Batch, LaTeX, Microsoft Office, Microsoft
-              Excel, Visual Studio Code, Visual Studio, Source Film Maker,
+              Excel, Visual Studio Code, Visual Studio, .NET Framework,
               Adobe Photoshop (and other Adobe tools), OBS Studio, Algodoo,
               and Windows.
             </p>
