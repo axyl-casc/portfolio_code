@@ -6,6 +6,7 @@ import { educationItems } from '../education';
 import { featuredHobbies } from '../hobbiesCards';
 import { featuredProjects } from '../projectsCards';
 import { getTagHue } from '../utils/tagColors';
+import { tagPath } from '../utils/tags';
 
 export function HomePage() {
   return (
@@ -44,7 +45,7 @@ export function HomePage() {
         ].map((tag) => (
           <a
             key={tag}
-            href={`/tags/${encodeURIComponent(tag.toLowerCase())}`}
+            href={tagPath(tag)}
             className="badge badge-lg tag-badge hover:opacity-80 transition-opacity"
             style={{ '--tag-hue': getTagHue(tag) } as CSSProperties}
           >
@@ -225,7 +226,7 @@ export function HomePage() {
           'C/C++',
           'Python',
           'React',
-          'NodeJS',
+          'Node.js',
           'Electron',
           'Tailwind CSS',
           'SQL',
@@ -234,7 +235,7 @@ export function HomePage() {
         ].map((tag) => (
           <a
             key={tag}
-            href={`/tags/${encodeURIComponent(tag.toLowerCase())}`}
+            href={tagPath(tag)}
             className="badge badge-lg tag-badge hover:opacity-80 transition-opacity"
             style={{ '--tag-hue': getTagHue(tag) } as CSSProperties}
           >
@@ -291,7 +292,7 @@ export function HomePage() {
                     ].join(' ').trim()}
                     style={{ '--tag-hue': getTagHue(tag) } as CSSProperties}
                   >
-                    <a href={`/tags/${encodeURIComponent(tag.toLowerCase())}`}>{tag}</a>
+                    <a href={tagPath(tag)}>{tag}</a>
                   </div>
                 ))}
               </div>
@@ -333,7 +334,7 @@ export function HomePage() {
                     ].join(' ').trim()}
                     style={{ '--tag-hue': getTagHue(tag) } as CSSProperties}
                   >
-                    <a href={`/tags/${encodeURIComponent(tag.toLowerCase())}`}>{tag}</a>
+                    <a href={tagPath(tag)}>{tag}</a>
                   </div>
                 ))}
               </div>
