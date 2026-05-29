@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react';
 import type { CardItem } from '../types';
 import { getTagHue } from '../utils/tagColors';
+import { tagPath } from '../utils/tags';
 
 export function CardGrid({
   items,
@@ -32,7 +33,7 @@ export function CardGrid({
                 {item.tags.map((tag) => (
                   <a
                     key={tag}
-                    href={`/tags/${encodeURIComponent(tag.toLowerCase())}`}
+                    href={tagPath(tag)}
                     className="badge tag-badge hover:opacity-80 transition-opacity"
                     style={{ '--tag-hue': getTagHue(tag) } as CSSProperties}
                   >

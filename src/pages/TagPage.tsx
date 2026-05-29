@@ -4,14 +4,12 @@ import { experienceItems } from '../experience';
 import { educationItems } from '../education';
 import type { CardItem } from '../types';
 import { CardGrid } from '../components/CardGrid';
-
-function matchesTag(input: string, tag: string) {
-  return input.trim().toLowerCase() === tag.trim().toLowerCase();
-}
+import { normalizeTag, tagsMatch } from '../utils/tags';
 
 export function TagPage({ tag }: { tag: string }) {
+  const displayTag = normalizeTag(tag);
   const projectLinks: CardItem[] = projects
-    .filter((item) => item.tags.some((itemTag) => matchesTag(itemTag, tag)))
+    .filter((item) => item.tags.some((itemTag) => tagsMatch(itemTag, tag)))
     .map((item) => ({
       title: item.title,
       description: item.description,
@@ -20,7 +18,7 @@ export function TagPage({ tag }: { tag: string }) {
     }));
 
   const hobbyLinks: CardItem[] = hobbies
-    .filter((item) => item.tags.some((itemTag) => matchesTag(itemTag, tag)))
+    .filter((item) => item.tags.some((itemTag) => tagsMatch(itemTag, tag)))
     .map((item) => ({
       title: item.title,
       description: item.description,
@@ -29,7 +27,7 @@ export function TagPage({ tag }: { tag: string }) {
     }));
 
   const experienceLinks: CardItem[] = experienceItems
-    .filter((item) => item.tags.some((itemTag) => matchesTag(itemTag, tag)))
+    .filter((item) => item.tags.some((itemTag) => tagsMatch(itemTag, tag)))
     .map((item) => ({
       title: item.title,
       description: item.meta,
@@ -38,7 +36,7 @@ export function TagPage({ tag }: { tag: string }) {
     }));
 
   const educationLinks: CardItem[] = educationItems
-    .filter((item) => item.tags.some((itemTag) => matchesTag(itemTag, tag)))
+    .filter((item) => item.tags.some((itemTag) => tagsMatch(itemTag, tag)))
     .map((item) => ({
       title: item.title,
       description: item.meta,
@@ -52,7 +50,7 @@ export function TagPage({ tag }: { tag: string }) {
     <main id="main-content" className="site-main flex-1 space-y-4 bg-base-100 rounded-2xl" tabIndex={-1}>
       <section className="card content-card">
         <div className="card-body space-y-4">
-          <h2 className="text-2xl font-bold">Tagged: {tag}</h2>
+          <h2 className="text-2xl font-bold">Tagged: {displayTag}</h2>
           <p className="text-base-content/80">Found {items.length} related {items.length === 1 ? 'link' : 'links'}.</p>
           {items.length > 0 ? (
             <CardGrid items={items} grid />
