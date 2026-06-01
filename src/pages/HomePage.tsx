@@ -100,7 +100,7 @@ export function HomePage() {
             </h3>
             <p className="text-sm text-base-content/75">
               React, Tailwind CSS, TSX component editing, Quartz 4, Node.js,
-              Flask, Electron, .NET Framework, desktop web apps, advanced web development,
+              Express.js, Flask, Electron, .NET Framework, desktop web apps, advanced web development,
               interactive UI components, and internal wiki development.
             </p>
           </div>
@@ -227,6 +227,7 @@ export function HomePage() {
           'Python',
           'React',
           'Node.js',
+          'Express.js',
           'Electron',
           'Tailwind CSS',
           'SQL',
