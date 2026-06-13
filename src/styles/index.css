@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateX(-10%) translateY(-20px) scale(1.05);
+  }
+
+  100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+}
+
+@keyframes waveReverse {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateX(10%) translateY(20px) scale(0.95);
+  }
+
+  100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+}
+
+.animate-wave {
+  animation: wave 6s ease-in-out infinite;
+}
+
+.animate-wave-slow {
+  animation: wave 10s ease-in-out infinite;
+}
+
+.animate-wave-reverse {
+  animation: waveReverse 14s ease-in-out infinite;
+}
+
 @layer components {
   .skip-link {
     @apply sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:rounded-md focus:bg-base-100 focus:text-base-content focus:shadow-md;
@@ -81,11 +121,11 @@
   }
 
   .site-surface {
-    background-color: #dbeafe;
+    background-color: #020617;
   }
 
-:root[data-theme='dark'] .site-surface {
-    background-color: #0b1d3a;
+  :root[data-theme='dark'] .site-surface {
+    background-color: #020617;
   }
 
   .content-card {
