@@ -106,7 +106,7 @@
   }
 
   .scroll-top-button {
-    @apply fixed top-4 right-4 z-50 px-4 py-2 rounded-full font-semibold border border-base-300 shadow-md transition-all duration-200 bg-base-100 text-base-content;
+    @apply fixed top-4 right-4 z-50 flex h-10 w-10 items-center justify-center rounded-full text-xl font-semibold border border-base-300 shadow-md transition-all duration-200 bg-base-100 text-base-content;
   }
 
   .scroll-top-button:hover {
