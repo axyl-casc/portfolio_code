@@ -44,7 +44,7 @@ export function Layout({ title, subtitle, children, theme, onThemeChange }: Layo
       <div className="relative z-10 flex min-h-screen flex-col">
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <button type="button" className="scroll-top-button" onClick={handleScrollToTop} aria-label="Scroll to top">
-          ↑ Top
+          ↑
         </button>
         <Header title={title} subtitle={subtitle} links={links} theme={theme} onThemeChange={onThemeChange} />
         {children}
