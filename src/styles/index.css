@@ -102,6 +102,12 @@
     @apply absolute right-6 top-6;
   }
 
+  @media (orientation: portrait) {
+    .header-theme-control {
+      @apply fixed left-4 top-4 right-auto z-50;
+    }
+  }
+
   .header-title {
     @apply text-4xl md:text-5xl font-bold tracking-tight text-primary;
   }
