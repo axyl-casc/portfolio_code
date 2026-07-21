@@ -30,22 +30,32 @@
   }
 
   .background-wave {
-    @apply absolute left-1/2 w-[160vw] -translate-x-1/2 rounded-[45%] blur-3xl will-change-transform;
-    opacity: 0.55;
+    @apply absolute left-1/2 w-[180vw] -translate-x-1/2 rounded-[45%] blur-3xl will-change-transform;
+    opacity: 0.68;
+  }
+
+  .background-wave--top-light {
+    @apply top-[-7rem] h-[28rem] bg-cyan-300/50;
+    animation: waveReverse 12s ease-in-out infinite;
+  }
+
+  .background-wave--top-deep {
+    @apply top-[-12rem] h-[34rem] bg-sky-500/35;
+    animation: wave 16s ease-in-out infinite;
   }
 
   .background-wave--front {
-    @apply bottom-[-4rem] h-72 bg-cyan-400/45;
+    @apply bottom-[-6rem] h-[30rem] bg-cyan-300/55;
     animation: wave 6s ease-in-out infinite;
   }
 
   .background-wave--middle {
-    @apply bottom-[-8rem] h-80 bg-blue-500/40;
+    @apply bottom-[-10rem] h-[36rem] bg-blue-500/45;
     animation: wave 10s ease-in-out infinite;
   }
 
   .background-wave--back {
-    @apply bottom-[-12rem] h-96 bg-indigo-500/35;
+    @apply bottom-[-14rem] h-[42rem] bg-indigo-500/35;
     animation: waveReverse 14s ease-in-out infinite;
   }
 

@@ -37,6 +37,8 @@ export function Layout({ title, subtitle, children, theme, onThemeChange }: Layo
   return (
     <div className="site-surface relative min-h-screen overflow-hidden text-base-content font-sans leading-normal tracking-normal">
       <div className="animated-background" aria-hidden="true">
+        <div className="background-wave background-wave--top-light" />
+        <div className="background-wave background-wave--top-deep" />
         <div className="background-wave background-wave--front" />
         <div className="background-wave background-wave--middle" />
         <div className="background-wave background-wave--back" />
