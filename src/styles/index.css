@@ -3,46 +3,53 @@
 @tailwind utilities;
 
 @keyframes wave {
-  0% {
-    transform: translateX(0) translateY(0) scale(1);
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
   }
 
   50% {
-    transform: translateX(-10%) translateY(-20px) scale(1.05);
-  }
-
-  100% {
-    transform: translateX(0) translateY(0) scale(1);
+    transform: translate3d(-8%, -18px, 0) rotate(1deg) scale(1.04);
   }
 }
 
 @keyframes waveReverse {
-  0% {
-    transform: translateX(0) translateY(0) scale(1);
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
   }
 
   50% {
-    transform: translateX(10%) translateY(20px) scale(0.95);
+    transform: translate3d(8%, 16px, 0) rotate(-1deg) scale(0.96);
   }
-
-  100% {
-    transform: translateX(0) translateY(0) scale(1);
-  }
-}
-
-.animate-wave {
-  animation: wave 6s ease-in-out infinite;
-}
-
-.animate-wave-slow {
-  animation: wave 10s ease-in-out infinite;
-}
-
-.animate-wave-reverse {
-  animation: waveReverse 14s ease-in-out infinite;
 }
 
 @layer components {
+  .animated-background {
+    @apply pointer-events-none fixed inset-0 z-0 overflow-hidden;
+  }
+
+  .background-wave {
+    @apply absolute left-1/2 w-[160vw] -translate-x-1/2 rounded-[45%] blur-3xl will-change-transform;
+    opacity: 0.55;
+  }
+
+  .background-wave--front {
+    @apply bottom-[-4rem] h-72 bg-cyan-400/45;
+    animation: wave 6s ease-in-out infinite;
+  }
+
+  .background-wave--middle {
+    @apply bottom-[-8rem] h-80 bg-blue-500/40;
+    animation: wave 10s ease-in-out infinite;
+  }
+
+  .background-wave--back {
+    @apply bottom-[-12rem] h-96 bg-indigo-500/35;
+    animation: waveReverse 14s ease-in-out infinite;
+  }
+
+
   .skip-link {
     @apply sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:rounded-md focus:bg-base-100 focus:text-base-content focus:shadow-md;
   }

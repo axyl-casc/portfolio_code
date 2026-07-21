@@ -36,10 +36,10 @@ export function Layout({ title, subtitle, children, theme, onThemeChange }: Layo
 
   return (
     <div className="site-surface relative min-h-screen overflow-hidden text-base-content font-sans leading-normal tracking-normal">
-      <div className="pointer-events-none fixed inset-0" aria-hidden="true">
-        <div className="absolute -bottom-24 left-0 h-72 w-[200%] animate-wave rounded-[40%] bg-cyan-500/20 blur-3xl" />
-        <div className="absolute -bottom-32 left-[-25%] h-80 w-[200%] animate-wave-slow rounded-[45%] bg-blue-500/20 blur-3xl" />
-        <div className="absolute -bottom-40 left-[-50%] h-96 w-[200%] animate-wave-reverse rounded-[50%] bg-indigo-500/20 blur-3xl" />
+      <div className="animated-background" aria-hidden="true">
+        <div className="background-wave background-wave--front" />
+        <div className="background-wave background-wave--middle" />
+        <div className="background-wave background-wave--back" />
       </div>
       <div className="relative z-10 flex min-h-screen flex-col">
         <a href="#main-content" className="skip-link">Skip to main content</a>
