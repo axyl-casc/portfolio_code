@@ -171,17 +171,86 @@
     background-color: #020617;
   }
 
-  .content-card {
-    @apply border border-base-content/10 shadow-md rounded-2xl text-base-content;
-    background-color: hsl(var(--b1) / 0.78);
-    backdrop-filter: blur(6px);
+  /* --------------------------------------------------------------------------
+     Container border playground
+     Tweak these custom properties to quickly try different container styles.
+     -------------------------------------------------------------------------- */
+  :root {
+    /* Controls how thick the decorative border ring appears. */
+    --container-border-width: 2px;
+    /* Controls how round the outer border corners are. */
+    --container-radius: 1.25rem;
+    /* Controls the transparent gap between the border ring and card content. */
+    --container-border-gap: 1px;
+    /* Controls the default card fill; lower alpha lets the animated backdrop show through. */
+    --container-surface-alpha: 0.82;
+    /* Controls the card background blur strength. */
+    --container-backdrop-blur: 10px;
+    /* Controls the default shadow size and softness. */
+    --container-shadow: 0 14px 35px hsl(var(--n) / 0.13);
+    /* Controls the brighter hover shadow. */
+    --container-hover-shadow: 0 22px 48px hsl(var(--p) / 0.23);
+    /* Controls the light-theme gradient border colors. */
+    --container-border-gradient: linear-gradient(135deg, hsl(var(--p) / 0.8), hsl(var(--s) / 0.55), hsl(var(--a) / 0.72));
+    /* Option: use this for a warmer orange/yellow border. */
+    /* --container-border-gradient: linear-gradient(135deg, #fb923c, #facc15, #f97316); */
+    /* Option: use this for a cooler blue/cyan border. */
+    /* --container-border-gradient: linear-gradient(135deg, #38bdf8, #818cf8, #22d3ee); */
+    /* Option: use this for a subtle single-color border. */
+    /* --container-border-gradient: linear-gradient(135deg, hsl(var(--p) / 0.45), hsl(var(--p) / 0.18)); */
+    /* Controls the small glossy highlight inside the card. */
+    --container-inner-glow: radial-gradient(circle at top left, hsl(var(--p) / 0.16), transparent 34rem);
+  }
+
+  :root[data-theme='dark'] {
+    /* Dark theme border colors; swap with the options above if you want matching themes. */
+    --container-border-gradient: linear-gradient(135deg, hsl(var(--p) / 0.88), hsl(var(--s) / 0.62), hsl(var(--a) / 0.72));
+    /* Dark theme shadow is slightly stronger for extra separation from the page. */
+    --container-shadow: 0 16px 42px hsl(222 47% 4% / 0.52);
+    /* Dark theme hover shadow adds a colored bloom. */
+    --container-hover-shadow: 0 24px 58px hsl(var(--p) / 0.32);
+    /* Dark theme glow uses a brighter tint so the surface does not feel flat. */
+    --container-inner-glow: radial-gradient(circle at top left, hsl(var(--p) / 0.22), transparent 32rem);
+  }
+
+  .content-card,
+  .section-container {
+    @apply relative overflow-hidden text-base-content;
+    border: var(--container-border-width) solid transparent;
+    border-radius: var(--container-radius);
+    background:
+      linear-gradient(hsl(var(--b1) / var(--container-surface-alpha)), hsl(var(--b1) / var(--container-surface-alpha))) padding-box,
+      var(--container-border-gradient) border-box;
+    box-shadow: var(--container-shadow);
+    backdrop-filter: blur(var(--container-backdrop-blur));
+  }
+
+  .content-card::before,
+  .section-container::before {
+    @apply pointer-events-none absolute inset-0;
+    content: '';
+    border-radius: calc(var(--container-radius) - var(--container-border-gap));
+    background: var(--container-inner-glow);
+    opacity: 0.85;
+  }
+
+  .content-card > *,
+  .section-container > * {
+    @apply relative z-10;
+  }
+
+  .section-container {
+    /* Option: increase this alpha for more solid accordion containers. */
+    --container-surface-alpha: 0.88;
+    /* Option: increase this width for chunkier section borders. */
+    --container-border-width: 3px;
   }
 
   .content-card--interactive:hover {
-    @apply shadow-xl;
-    border-color: hsl(var(--p) / 0.35);
+    @apply -translate-y-0.5;
+    box-shadow: var(--container-hover-shadow);
+    filter: saturate(1.08);
     outline: none;
-    box-shadow: var(--tw-shadow);
   }
 
   .other-project-card {
