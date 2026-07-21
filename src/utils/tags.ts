@@ -1,6 +1,9 @@
 const TAG_ALIASES: Record<string, string> = {
   nodejs: 'Node.js',
-  'node.js': 'Node.js'
+  'node.js': 'Node.js',
+  javascript: 'JavaScript',
+  quartz: 'Quartz 4',
+  'quartz 4': 'Quartz 4'
 };
 
 export function normalizeTag(tag: string) {
