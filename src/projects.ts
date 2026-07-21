@@ -15,7 +15,7 @@ export const projects: Project[] = [
     description: 'An interactive documentation site built with Quartz, featuring guides, learning modules, and development notes for Infinite Mind Games projects.',
     projectUrl: 'https://infinite-mind-pictures-inc.github.io/Infinite-Mind-Wiki/',
     section: 'featured',
-    tags: ['Quartz', 'Documentation', 'Web Development', 'React', 'JavaScript', 'Java', 'Software Development', 'Technical Communication']
+    tags: ['Quartz 4', 'Documentation', 'Web Development', 'React', 'TypeScript', 'JavaScript', 'Java', 'Markdown', 'Accessibility', 'UI/UX', 'Software Development', 'Technical Communication']
   },
   {
     slug: 'beginner-go-ai-game',
@@ -23,7 +23,7 @@ export const projects: Project[] = [
     description: 'A GO playing interface designed to teach beginners how to play the game of GO.',
     projectUrl: 'https://zxnashx.itch.io/beginner-go-game',
     section: 'featured',
-    tags: ['Baduk / Go', 'Game Development', 'Education', 'Python', 'JavaScript', 'Node.js', 'Electron', 'SQL', 'Tailwind CSS', 'Applied AI', 'Software Development']
+    tags: ['Baduk / Go', 'Game Development', 'Education', 'Python', 'JavaScript', 'Node.js', 'Electron', 'SQL', 'Tailwind CSS', 'Applied AI', 'Go AI', 'Algorithms', 'UI/UX', 'Software Development']
   },
   {
     slug: 'fancy-pants-outfitters-react-demo',
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     description: 'A polished React storefront demo featuring curated fashion for trendsetters, workweek looks, and night-out fits. Highlights include in-stock essentials, modern silhouettes, and standout accessories for individuals, partners, and the whole crew.',
     projectUrl: 'https://acare3.github.io/4513_2_website/',
     section: 'featured',
-    tags: ['React', 'Frontend', 'E-commerce', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Software Development']
+    tags: ['React', 'Frontend', 'E-commerce', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Web Development', 'UI/UX', 'Software Development']
   },
   {
     slug: 'defender-remake-atari-st',
@@ -55,8 +55,7 @@ export const projects: Project[] = [
     description: 'Run different CPU scheduling algorithms interactively and view the results afterwards.',
     projectUrl: 'https://axyl-casc.github.io/Scheduler-Designer/',
     section: 'other',
-    tags: ['Algorithms', 'Visualization', 'Education', 'Tailwind CSS', 'Software Development'
-    ]
+    tags: ['Algorithms', 'Visualization', 'Education', 'JavaScript', 'Tailwind CSS', 'Web App', 'Software Development']
   },
   {
     slug: 'airplane-package-scheduler',
@@ -72,7 +71,7 @@ export const projects: Project[] = [
     description: 'A daily to-do list app I use for language learning and tracking whatever currently interests me.',
     projectUrl: 'https://axyl-casc.github.io/TrainingGame/',
     section: 'other',
-    tags: ['Productivity', 'Habit Tracking', 'Web App', 'Software Development']
+    tags: ['Productivity', 'Habit Tracking', 'Web App', 'JavaScript', 'Tailwind CSS', 'Software Development']
   },
   {
     slug: 'goguesser',
@@ -80,8 +79,7 @@ export const projects: Project[] = [
     description: 'Guess the next best move in a Go game.',
     projectUrl: 'https://goguesser.onrender.com/',
     section: 'other',
-    tags: ['Baduk / Go', 'Puzzle', 'Web App', 'Node.js', 'Tailwind CSS', 'Game Development', 'Software Development'
-    ]
+    tags: ['Baduk / Go', 'Puzzle', 'Web App', 'Node.js', 'Express.js', 'Tailwind CSS', 'Game Development', 'Software Development']
   },
   {
     slug: 'dice-simulator',
@@ -106,6 +104,6 @@ export const projects: Project[] = [
     description: 'Offline-first bookshelf for Go materials, with search, bookmarks, and resume tracking across PDF/SGF/HTML files.',
     projectUrl: 'https://github.com/axyl-casc/GoLibrary',
     section: 'other',
-    tags: ['Offline-first', 'Search', 'Baduk / Go', 'Node.js', 'Software Development']
+    tags: ['Offline-first', 'Search', 'Baduk / Go', 'Node.js', 'Electron', 'JavaScript', 'Software Development']
   }
 ];
