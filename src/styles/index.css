@@ -35,28 +35,48 @@
   }
 
   .background-wave--top-light {
-    @apply top-[-7rem] h-[28rem] bg-cyan-300/50;
+    @apply top-[-7rem] h-[28rem] bg-yellow-300/55;
     animation: waveReverse 12s ease-in-out infinite;
   }
 
   .background-wave--top-deep {
-    @apply top-[-12rem] h-[34rem] bg-sky-500/35;
+    @apply top-[-12rem] h-[34rem] bg-orange-400/40;
     animation: wave 16s ease-in-out infinite;
   }
 
   .background-wave--front {
-    @apply bottom-[-6rem] h-[30rem] bg-cyan-300/55;
+    @apply bottom-[-6rem] h-[30rem] bg-yellow-300/60;
     animation: wave 6s ease-in-out infinite;
   }
 
   .background-wave--middle {
-    @apply bottom-[-10rem] h-[36rem] bg-blue-500/45;
+    @apply bottom-[-10rem] h-[36rem] bg-orange-500/45;
     animation: wave 10s ease-in-out infinite;
   }
 
   .background-wave--back {
-    @apply bottom-[-14rem] h-[42rem] bg-indigo-500/35;
+    @apply bottom-[-14rem] h-[42rem] bg-amber-500/35;
     animation: waveReverse 14s ease-in-out infinite;
+  }
+
+  :root[data-theme='dark'] .background-wave--top-light {
+    @apply bg-cyan-300/50;
+  }
+
+  :root[data-theme='dark'] .background-wave--top-deep {
+    @apply bg-sky-500/35;
+  }
+
+  :root[data-theme='dark'] .background-wave--front {
+    @apply bg-cyan-300/55;
+  }
+
+  :root[data-theme='dark'] .background-wave--middle {
+    @apply bg-blue-500/45;
+  }
+
+  :root[data-theme='dark'] .background-wave--back {
+    @apply bg-indigo-500/35;
   }
 
 
@@ -138,7 +158,7 @@
   }
 
   .site-surface {
-    background-color: #020617;
+    background-color: #fff7ed;
   }
 
   :root[data-theme='dark'] .site-surface {
