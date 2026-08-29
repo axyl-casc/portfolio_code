@@ -58,6 +58,14 @@ export const projects: Project[] = [
     tags: ['Algorithms', 'Visualization', 'Education', 'JavaScript', 'Tailwind CSS', 'Web App', 'Software Development']
   },
   {
+    slug: 'assembly-board-game',
+    title: 'Assembly Board Game',
+    description: 'A fun prototype board game for learning assembly.',
+    projectUrl: 'https://axyl-casc.github.io/AsmBoardgame',
+    section: 'other',
+    tags: ['Assembly', 'Game Development', 'Education', 'Web App', 'Software Development']
+  },
+  {
     slug: 'airplane-package-scheduler',
     title: 'Airplane Package Scheduler',
     description: 'Effectively calculates possible routes for airplanes to deliver packages with a version made in Javascript and Haskell.',
