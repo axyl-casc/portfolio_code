@@ -159,13 +159,12 @@ export function HomePage() {
 
         <div className="card content-card">
           <div className="card-body">
-            <h3 className="card-title text-base">AI / LLM</h3>
+            <h3 className="card-title text-base">AI Code</h3>
             <p className="text-sm text-base-content/75">
-              Daily AI-assisted development workflows focused primarily on OpenAI
-              Codex for planning, implementation, refactoring, and rapid
-              prototyping, with additional experience using Claude and OpenClaw
-              for cross-model validation, prompt comparison, and iterative
-              software delivery.
+              Daily AI-assisted development workflows using OpenAI Codex,
+              Claude, Gemini, and Antigravity for planning, implementation,
+              refactoring, rapid prototyping, cross-model validation, prompt
+              comparison, and iterative software delivery.
             </p>
           </div>
         </div>
