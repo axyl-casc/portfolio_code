@@ -104,6 +104,16 @@
 
   .header-profile-image {
     @apply mx-auto mb-5 h-32 w-32 rounded-full object-cover border-4 border-base-100 shadow-lg ring-2 ring-primary/30;
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(0.98);
+    transition: opacity 360ms ease, filter 360ms ease, transform 360ms ease;
+  }
+
+  .header-profile-image--loaded {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
   }
 
   @media (orientation: portrait) {

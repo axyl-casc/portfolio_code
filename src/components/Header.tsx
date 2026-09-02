@@ -28,6 +28,7 @@ export function Header({ title, subtitle, links, theme, onThemeChange }: HeaderP
     const randomIndex = Math.floor(Math.random() * profilePictures.length);
     return profilePictures[randomIndex];
   });
+  const [isProfilePictureLoaded, setIsProfilePictureLoaded] = useState(false);
 
   const socialIconMap = {
     github: theme === 'dark' ? githubIconLight : githubIconDark,
@@ -46,7 +47,12 @@ return (
           <img
             src={profilePicture}
             alt=""
-            className="header-profile-image"
+            className={`header-profile-image ${
+              isProfilePictureLoaded ? 'header-profile-image--loaded' : ''
+            }`}
+            loading="lazy"
+            decoding="async"
+            onLoad={() => setIsProfilePictureLoaded(true)}
             aria-hidden="true"
           />
         )}
