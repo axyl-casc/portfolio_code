@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { ThemeController } from './ThemeController';
-import githubIconDark from '../assets/images/github/GitHub_Invertocat_Black.png';
-import githubIconLight from '../assets/images/github/GitHub_Invertocat_White.png';
-import linkedinIconDark from '../assets/images/github/InBug-Black.png';
-import linkedinIconLight from '../assets/images/github/InBug-White.png';
+import githubIconDark from '../assets/images/github/resized_GitHub_Invertocat_Black.png';
+import githubIconLight from '../assets/images/github/resized_GitHub_Invertocat_White.png';
+import linkedinIconDark from '../assets/images/github/resized_InBug-Black.png';
+import linkedinIconLight from '../assets/images/github/resized_InBug-White.png';
 
 type NavLink = { label: string; href: string };
 
