@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ThemeController } from './ThemeController';
 import githubIconDark from '../assets/images/github/GitHub_Invertocat_Black.png';
 import githubIconLight from '../assets/images/github/GitHub_Invertocat_White.png';
@@ -14,7 +15,20 @@ type HeaderProps = {
   onThemeChange: (theme: 'light' | 'dark') => void;
 };
 
+const profilePictures = Object.values(
+  import.meta.glob('../assets/images/pfp/*.{jpg,jpeg,JPG,JPEG,png,PNG}', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+  })
+) as string[];
+
 export function Header({ title, subtitle, links, theme, onThemeChange }: HeaderProps) {
+  const [profilePicture] = useState(() => {
+    const randomIndex = Math.floor(Math.random() * profilePictures.length);
+    return profilePictures[randomIndex];
+  });
+
   const socialIconMap = {
     github: theme === 'dark' ? githubIconLight : githubIconDark,
     linkedin: theme === 'dark' ? linkedinIconLight : linkedinIconDark
@@ -27,6 +41,15 @@ return (
         <div className="header-theme-control">
           <ThemeController theme={theme} onChange={onThemeChange} />
         </div>
+
+        {profilePicture && (
+          <img
+            src={profilePicture}
+            alt=""
+            className="header-profile-image"
+            aria-hidden="true"
+          />
+        )}
 
         <h1 className="header-title">{title}</h1>
         <p className="header-subtitle">{subtitle}</p>

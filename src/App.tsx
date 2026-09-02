@@ -12,7 +12,7 @@ import { hobbies } from './hobbies';
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const stored = localStorage.getItem('theme');
-    return stored === 'dark' ? 'dark' : 'light';
+    return stored === 'light' ? 'light' : 'dark';
   });
 
   useEffect(() => {

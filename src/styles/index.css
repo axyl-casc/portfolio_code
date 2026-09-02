@@ -102,6 +102,10 @@
     @apply absolute right-6 top-6;
   }
 
+  .header-profile-image {
+    @apply mx-auto mb-5 h-32 w-32 rounded-full object-cover border-4 border-base-100 shadow-lg ring-2 ring-primary/30;
+  }
+
   @media (orientation: portrait) {
     .header-theme-control {
       @apply fixed left-4 top-4 right-auto z-50;
@@ -183,16 +187,6 @@
     outline: none;
     box-shadow: var(--tw-shadow);
   }
-
-  .other-project-card {
-    background-color: #fff;
-    backdrop-filter: none;
-  }
-
-  :root[data-theme='dark'] .other-project-card {
-    background-color: #000;
-  }
-
 
   .card-link-overlay {
     @apply absolute inset-0 rounded-2xl;
