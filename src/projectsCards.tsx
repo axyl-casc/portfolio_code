@@ -7,7 +7,7 @@ export const featuredProjects: CardItem[] = [
     .map((project) => ({
       title: project.title,
       href: `/projects/${project.slug}`,
-      description: project.description,
+      description: project.shortDescription || project.description || '',
       tags: project.tags
     })),
   {

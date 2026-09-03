@@ -12,7 +12,7 @@ export function TagPage({ tag }: { tag: string }) {
     .filter((item) => item.tags.some((itemTag) => tagsMatch(itemTag, tag)))
     .map((item) => ({
       title: item.title,
-      description: item.description,
+      description: item.shortDescription || item.description || '',
       href: `/projects/${item.slug}`,
       tags: item.tags
     }));
@@ -21,7 +21,7 @@ export function TagPage({ tag }: { tag: string }) {
     .filter((item) => item.tags.some((itemTag) => tagsMatch(itemTag, tag)))
     .map((item) => ({
       title: item.title,
-      description: item.description,
+      description: item.shortDescription || item.description || '',
       href: `/hobbies/${item.slug}`,
       tags: item.tags
     }));
@@ -47,18 +47,27 @@ export function TagPage({ tag }: { tag: string }) {
   const items = [...projectLinks, ...experienceLinks, ...educationLinks, ...hobbyLinks];
 
   return (
-    <main id="main-content" className="site-main flex-1 space-y-4 bg-base-100 rounded-2xl" tabIndex={-1}>
-      <section className="card content-card">
-        <div className="card-body space-y-4">
-          <h2 className="text-2xl font-bold">Tagged: {displayTag}</h2>
-          <p className="text-base-content/80">Found {items.length} related {items.length === 1 ? 'link' : 'links'}.</p>
-          {items.length > 0 ? (
-            <CardGrid items={items} grid />
-          ) : (
-            <div className="alert alert-info">No links found for this tag yet.</div>
-          )}
+    <main id="main-content" className="site-main flex-1 space-y-8" tabIndex={-1}>
+      <div className="content-card p-6 md:p-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h2 className="text-3xl font-extrabold tracking-tight text-primary">Tagged: {displayTag}</h2>
+            <p className="mt-2 text-base text-base-content/85">
+              Found {items.length} related {items.length === 1 ? 'item' : 'items'}.
+            </p>
+          </div>
+          <a href="/" className="btn btn-outline btn-sm rounded-full self-start md:self-center">
+            ← Back to Home
+          </a>
         </div>
-      </section>
+      </div>
+
+      {items.length > 0 ? (
+        <CardGrid items={items} grid />
+      ) : (
+        <div className="alert alert-info">No links found for this tag yet.</div>
+      )}
     </main>
   );
 }
+

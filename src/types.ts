@@ -8,7 +8,10 @@ export type CardItem = {
 export type Project = {
   slug: string;
   title: string;
-  description: string;
+  shortDescription: string;
+  longDescription: string | string[];
+  description?: string;
+  highlights?: string[];
   projectUrl: string;
   section: 'featured' | 'other';
   tags: string[];
@@ -18,7 +21,10 @@ export type Project = {
 export type Hobby = {
   slug: string;
   title: string;
-  description: string;
+  shortDescription: string;
+  longDescription: string | string[];
+  description?: string;
+  highlights?: string[];
   hobbyUrl: string;
   section: 'featured' | 'other';
   tags: string[];

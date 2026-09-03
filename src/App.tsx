@@ -11,13 +11,13 @@ import { hobbies } from './hobbies';
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    const stored = localStorage.getItem('theme');
+    const stored = localStorage.getItem('page-theme');
     return stored === 'light' ? 'light' : 'dark';
   });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    localStorage.setItem('page-theme', theme);
   }, [theme]);
 
 

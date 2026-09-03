@@ -5,7 +5,7 @@ import { tagPath } from '../utils/tags';
 
 export function CardGrid({
   items,
-  grid = false,
+  grid = true,
   cardClassName = '',
   cardStyle
 }: {
@@ -14,27 +14,35 @@ export function CardGrid({
   cardClassName?: string;
   cardStyle?: CSSProperties;
 }) {
+  const containerClass = grid
+    ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
+    : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+
   return (
-    <div className={grid ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6' : 'space-y-6'}>
+    <div className={containerClass}>
       {items.map((item) => (
         <div
           key={item.href}
-          className={`card content-card content-card--interactive transition-all duration-200 ${cardClassName}`.trim()}
+          className={`card content-card content-card--interactive group flex flex-col justify-between ${cardClassName}`.trim()}
           style={cardStyle}
         >
-          <div className="card-body relative">
+          <div className="card-body p-6 flex flex-col justify-between h-full relative">
             <a href={item.href} className="card-link-overlay" aria-label={`Open ${item.title}`} />
-            <h3 className="card-title text-base-content">
-              {item.title}
-            </h3>
-            <p className="text-base-content/80">{item.description}</p>
+            <div>
+              <h3 className="card-title text-xl font-bold tracking-tight text-base-content group-hover:text-primary transition-colors">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-base-content/85">
+                {item.description}
+              </p>
+            </div>
             {item.tags && item.tags.length > 0 && (
-              <div className="card-actions pt-2 relative z-10">
+              <div className="card-actions pt-5 mt-auto relative z-20 flex flex-wrap gap-1.5">
                 {item.tags.map((tag) => (
                   <a
                     key={tag}
                     href={tagPath(tag)}
-                    className="badge tag-badge hover:opacity-80 transition-opacity"
+                    className="tag-badge"
                     style={{ '--tag-hue': getTagHue(tag) } as CSSProperties}
                   >
                     {tag}
@@ -48,3 +56,4 @@ export function CardGrid({
     </div>
   );
 }
+
