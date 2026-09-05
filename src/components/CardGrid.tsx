@@ -50,10 +50,6 @@ export function CardGrid({
                 ))}
               </div>
             )}
-            <div className="card-click-cue" aria-hidden="true">
-              <span>View details</span>
-              <span className="card-click-cue__arrow">→</span>
-            </div>
           </div>
         </div>
       ))}
