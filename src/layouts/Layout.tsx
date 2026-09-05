@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
+import resumeUrl from '../assets/Axyl - Resume.pdf?url';
 
 type LayoutProps = {
   title: string;
@@ -17,12 +18,14 @@ const homeLinks = [
   { label: 'Work Experience', href: '#experience' },
   { label: 'Education', href: '#education' },
   { label: 'Hobbies', href: '#hobbies' },
+  { label: 'Resume (PDF)', href: resumeUrl },
   { label: 'GitHub', href: 'https://github.com/axyl-casc' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/axyl-carefoot-schulz-7b3024200/' }
 ];
 
 const defaultLinks = [
   { label: 'Home', href: '/' },
+  { label: 'Resume (PDF)', href: resumeUrl },
   { label: 'GitHub', href: 'https://github.com/axyl-casc' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/axyl-carefoot-schulz-7b3024200/' }
 ];
