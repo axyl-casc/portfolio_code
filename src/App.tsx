@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { Layout } from './layouts/Layout';
 import { HomePage } from './pages/HomePage';
 import { OtherProjectsPage } from './pages/OtherProjectsPage';
@@ -6,6 +7,7 @@ import { OtherHobbiesPage } from './pages/OtherHobbiesPage';
 import { ProjectPage } from './pages/ProjectPage';
 import { HobbyPage } from './pages/HobbyPage';
 import { TagPage } from './pages/TagPage';
+import { TechStackPage } from './pages/TechStackPage';
 import { projects } from './projects';
 import { hobbies } from './hobbies';
 
@@ -19,6 +21,21 @@ function App() {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('page-theme', theme);
   }, [theme]);
+
+  const handleThemeChange = (nextTheme: 'light' | 'dark') => {
+    if (typeof document === 'undefined' || !('startViewTransition' in document)) {
+      setTheme(nextTheme);
+      return;
+    }
+
+    document.startViewTransition(() => {
+      flushSync(() => {
+        setTheme(nextTheme);
+        document.documentElement.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('page-theme', nextTheme);
+      });
+    });
+  };
 
 
   useEffect(() => {
@@ -56,6 +73,7 @@ function App() {
   const path = window.location.pathname;
   const isOtherProjects = path.includes('other_projects');
   const isOtherHobbies = path.includes('other_hobbies');
+  const isTechStack = path.includes('tech-stack') || path.includes('tech_stack') || path.includes('techstack');
   const projectMatch = path.match(/^\/projects\/([^/]+)\/?$/);
   const hobbyMatch = path.match(/^\/hobbies\/([^/]+)\/?$/);
   const tagMatch = path.match(/^\/tags\/([^/]+)\/?$/);
@@ -63,9 +81,22 @@ function App() {
   const hobby = hobbyMatch ? hobbies.find((item) => item.slug === hobbyMatch[1]) : undefined;
   const tag = tagMatch ? decodeURIComponent(tagMatch[1]) : undefined;
 
+  if (isTechStack) {
+    return (
+      <Layout
+        title="Tech Stacks"
+        subtitle="Frontend, Backend, Database, and Server technologies powering my software."
+        theme={theme}
+        onThemeChange={handleThemeChange}
+      >
+        <TechStackPage />
+      </Layout>
+    );
+  }
+
   if (project) {
     return (
-      <Layout title="Project" subtitle="Project details and links." theme={theme} onThemeChange={setTheme}>
+      <Layout title="Project" subtitle="Project details and links." theme={theme} onThemeChange={handleThemeChange}>
         <ProjectPage project={project} />
       </Layout>
     );
@@ -73,7 +104,7 @@ function App() {
 
   if (hobby) {
     return (
-      <Layout title="Hobbies" subtitle="Details and links for hobbies." theme={theme} onThemeChange={setTheme}>
+      <Layout title="Hobbies" subtitle="Details and links for hobbies." theme={theme} onThemeChange={handleThemeChange}>
         <HobbyPage hobby={hobby} />
       </Layout>
     );
@@ -81,7 +112,7 @@ function App() {
 
   if (isOtherProjects) {
     return (
-      <Layout title="Projects" subtitle="Explore my other projects." theme={theme} onThemeChange={setTheme}>
+      <Layout title="Projects" subtitle="Explore my other projects." theme={theme} onThemeChange={handleThemeChange}>
         <OtherProjectsPage />
       </Layout>
     );
@@ -89,7 +120,7 @@ function App() {
 
   if (tag) {
     return (
-      <Layout title="Tags" subtitle="Explore everything related to a specific tag." theme={theme} onThemeChange={setTheme}>
+      <Layout title="Tags" subtitle="Explore everything related to a specific tag." theme={theme} onThemeChange={handleThemeChange}>
         <TagPage tag={tag} />
       </Layout>
     );
@@ -97,7 +128,7 @@ function App() {
 
   if (isOtherHobbies) {
     return (
-      <Layout title="Hobbies" subtitle="Explore my other hobbies." theme={theme} onThemeChange={setTheme}>
+      <Layout title="Hobbies" subtitle="Explore my other hobbies." theme={theme} onThemeChange={handleThemeChange}>
         <OtherHobbiesPage />
       </Layout>
     );
@@ -108,7 +139,7 @@ function App() {
       title="Axyl Carefoot-Schulz"
       subtitle="Software Developer | Building Scalable and User Focused Applications | Full Stack Development"
       theme={theme}
-      onThemeChange={setTheme}
+      onThemeChange={handleThemeChange}
     >
       <HomePage />
     </Layout>

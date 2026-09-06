@@ -74,6 +74,18 @@ export function HomePage() {
             visualization.
           </p>
 
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-base-200/70 border border-base-content/15 shadow-sm">
+            <div>
+              <h4 className="text-sm font-bold text-base-content">Interactive Tech Stacks</h4>
+              <p className="text-xs text-base-content/75 mt-0.5">
+                Explore tools across Frontend, Backend, Database, and Server with 5-star ratings.
+              </p>
+            </div>
+            <a href="/tech-stack" className="btn btn-primary btn-sm rounded-full shrink-0 shadow-sm">
+              Explore Tech Stacks →
+            </a>
+          </div>
+
           <div className="divider my-2" />
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

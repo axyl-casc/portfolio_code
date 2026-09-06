@@ -22,9 +22,14 @@ export function OtherProjectsPage() {
               Explore additional software tools, systems programming projects, educational games, and experimental applications.
             </p>
           </div>
-          <a href="/#projects" className="btn btn-outline btn-sm rounded-full self-start md:self-center">
-            ← Back to Featured Projects
-          </a>
+          <div className="flex flex-wrap items-center gap-2 self-start md:self-center">
+            <a href="/tech-stack" className="btn btn-primary btn-sm rounded-full">
+              Tech Stacks
+            </a>
+            <a href="/#projects" className="btn btn-outline btn-sm rounded-full">
+              ← Back to Featured Projects
+            </a>
+          </div>
         </div>
       </div>
       <CardGrid items={items} grid />

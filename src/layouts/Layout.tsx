@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import resumeUrl from '../assets/Axyl - Resume.pdf?url';
@@ -14,6 +14,7 @@ type LayoutProps = {
 const homeLinks = [
   { label: 'About me', href: '#about-me' },
   { label: 'Technical Skills', href: '#technical-skills' },
+  { label: 'Tech Stacks', href: '/tech-stack' },
   { label: 'Projects', href: '#projects' },
   { label: 'Work Experience', href: '#experience' },
   { label: 'Education', href: '#education' },
@@ -25,6 +26,8 @@ const homeLinks = [
 
 const defaultLinks = [
   { label: 'Home', href: '/' },
+  { label: 'Tech Stacks', href: '/tech-stack' },
+  { label: 'Projects', href: '/other_projects' },
   { label: 'Resume (PDF)', href: resumeUrl },
   { label: 'GitHub', href: 'https://github.com/axyl-casc' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/axyl-carefoot-schulz-7b3024200/' }
@@ -32,6 +35,17 @@ const defaultLinks = [
 
 export function Layout({ title, subtitle, children, theme, onThemeChange }: LayoutProps) {
   const links = window.location.pathname === '/' ? homeLinks : defaultLinks;
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 100);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -48,7 +62,14 @@ export function Layout({ title, subtitle, children, theme, onThemeChange }: Layo
       </div>
       <div className="relative z-10 flex min-h-screen flex-col">
         <a href="#main-content" className="skip-link">Skip to main content</a>
-        <button type="button" className="scroll-top-button" onClick={handleScrollToTop} aria-label="Scroll to top">
+        <button
+          type="button"
+          className={`scroll-top-button ${showScrollTop ? 'scroll-top-button--visible' : 'scroll-top-button--hidden'}`}
+          onClick={handleScrollToTop}
+          aria-label="Scroll to top"
+          tabIndex={showScrollTop ? 0 : -1}
+          aria-hidden={!showScrollTop}
+        >
           ↑
         </button>
         <Header title={title} subtitle={subtitle} links={links} theme={theme} onThemeChange={onThemeChange} />

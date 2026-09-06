@@ -170,12 +170,20 @@
   }
 
   .scroll-top-button {
-    @apply fixed top-4 right-4 z-50 flex h-10 w-10 items-center justify-center rounded-full text-lg font-semibold border border-base-content/10 shadow-md transition-all duration-200 bg-base-100 text-base-content;
+    @apply fixed top-4 right-4 z-50 flex h-10 w-10 items-center justify-center rounded-full text-lg font-semibold border border-base-content/10 shadow-md transition-all duration-300 bg-base-100 text-base-content;
     background-color: hsl(var(--b1) / 0.9);
     backdrop-filter: blur(12px);
   }
 
-  .scroll-top-button:hover {
+  .scroll-top-button--hidden {
+    @apply opacity-0 pointer-events-none scale-75 translate-y-2;
+  }
+
+  .scroll-top-button--visible {
+    @apply opacity-100 pointer-events-auto scale-100 translate-y-0;
+  }
+
+  .scroll-top-button--visible:hover {
     @apply -translate-y-0.5 shadow-lg border-primary/40 text-primary;
     background-color: hsl(var(--b1));
   }
@@ -291,5 +299,31 @@
 
   :root[data-theme='dark'] .tag-badge:hover {
     filter: brightness(1.15);
+  }
+}
+
+/* Smooth 0.5s theme fade transition */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* Fallback for browsers without View Transitions API */
+@supports not (view-transition-name: root) {
+  .site-surface,
+  .header-shell,
+  .content-card,
+  .site-footer,
+  .background-wave {
+    transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease, opacity 0.5s ease;
   }
 }
