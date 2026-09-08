@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import resumeUrl from '../assets/Axyl - Resume.pdf?url';
@@ -12,30 +12,31 @@ type LayoutProps = {
 };
 
 const homeLinks = [
-  { label: 'About me', href: '#about-me' },
-  { label: 'Technical Skills', href: '#technical-skills' },
-  { label: 'Tech Stacks', href: '/tech-stack' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Work Experience', href: '#experience' },
-  { label: 'Education', href: '#education' },
-  { label: 'Hobbies', href: '#hobbies' },
-  { label: 'Resume (PDF)', href: resumeUrl },
+  { label: 'Applied AI', href: '#applied-ai' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'About', href: '#about' },
+  { label: 'Résumé', href: resumeUrl },
   { label: 'GitHub', href: 'https://github.com/axyl-casc' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/axyl-carefoot-schulz-7b3024200/' }
 ];
 
 const defaultLinks = [
   { label: 'Home', href: '/' },
+  { label: 'Projects', href: '/#projects' },
   { label: 'Tech Stacks', href: '/tech-stack' },
-  { label: 'Projects', href: '/other_projects' },
-  { label: 'Resume (PDF)', href: resumeUrl },
+  { label: 'Résumé', href: resumeUrl },
   { label: 'GitHub', href: 'https://github.com/axyl-casc' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/axyl-carefoot-schulz-7b3024200/' }
 ];
 
+const DATA_REVEAL_SELECTOR = '[data-reveal]';
+
 export function Layout({ title, subtitle, children, theme, onThemeChange }: LayoutProps) {
   const links = window.location.pathname === '/' ? homeLinks : defaultLinks;
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,12 +48,80 @@ export function Layout({ title, subtitle, children, theme, onThemeChange }: Layo
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Yobo-style scroll-reveal IntersectionObserver
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const revealAll = () => {
+      root.querySelectorAll(DATA_REVEAL_SELECTOR).forEach((el) => {
+        el.classList.add('is-revealed');
+      });
+    };
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      revealAll();
+      return;
+    }
+
+    root.classList.add('reveal-ready');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        rootMargin: '0px 0px -10% 0px',
+        threshold: 0.12
+      }
+    );
+
+    const observeElement = (el: Element) => {
+      if (!el.classList.contains('is-revealed')) {
+        observer.observe(el);
+      }
+    };
+
+    root.querySelectorAll(DATA_REVEAL_SELECTOR).forEach(observeElement);
+
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node instanceof Element) {
+            if (node.matches(DATA_REVEAL_SELECTOR)) observeElement(node);
+            node.querySelectorAll?.(DATA_REVEAL_SELECTOR).forEach(observeElement);
+          }
+        });
+      });
+    });
+
+    mutationObserver.observe(root, { childList: true, subtree: true });
+
+    return () => {
+      mutationObserver.disconnect();
+      observer.disconnect();
+      root.classList.remove('reveal-ready');
+    };
+  }, [children]);
+
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <div className="site-surface relative min-h-screen overflow-hidden text-base-content font-sans leading-normal tracking-normal">
+    <div
+      ref={rootRef}
+      className="scroll-reveal-root site-surface relative min-h-screen overflow-hidden text-base-content font-sans leading-normal tracking-normal"
+    >
       <div className="animated-background" aria-hidden="true">
         <div className="background-wave background-wave--top-light" />
         <div className="background-wave background-wave--top-deep" />

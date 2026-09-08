@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+}
+
 @keyframes wave {
   0%,
   100% {
@@ -302,28 +309,29 @@
   }
 }
 
-/* Smooth 0.5s theme fade transition */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
+/* ─── SCROLL-REVEAL ANIMATIONS (YOBO-STYLE) ─── */
+.scroll-reveal-root.reveal-ready [data-reveal] {
+  opacity: 0;
+  filter: blur(6px);
+  transition: opacity 0.75s, transform 0.75s cubic-bezier(0.2, 0.75, 0.2, 1), filter 0.75s;
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform, filter;
+  transform: translateY(1.35rem) scale(0.985);
+}
+
+.scroll-reveal-root.reveal-ready [data-reveal].is-revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) {
-    animation: none !important;
+  .scroll-reveal-root [data-reveal] {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 
-/* Fallback for browsers without View Transitions API */
-@supports not (view-transition-name: root) {
-  .site-surface,
-  .header-shell,
-  .content-card,
-  .site-footer,
-  .background-wave {
-    transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease, opacity 0.5s ease;
-  }
-}
+

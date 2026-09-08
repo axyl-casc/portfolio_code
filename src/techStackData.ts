@@ -120,7 +120,7 @@ export const techItems: TechItem[] = [
       'Modern responsive layouts without relying on heavyweight bundle dependencies'
     ],
     projects: [
-      { name: 'Assembly Board Game (Compiled)', slug: 'assembly-board-game', url: 'https://axyl-casc.github.io/AsmBoardgame' },
+      { name: 'Assembly Board Game (Compiled)', slug: 'assembly-board-game', url: 'https://axyl-casc.github.io/CompiledWebsite/' },
       { name: 'CPU Scheduler (Scheduler Designer)', slug: 'cpu-scheduler', url: 'https://axyl-casc.github.io/Scheduler-Designer/' },
       { name: 'Daily Training Game', slug: 'daily-training-game', url: 'https://axyl-casc.github.io/TrainingGame/' },
       { name: 'Dice Simulator', slug: 'dice-simulator', url: 'https://axyl-casc.github.io/Dice-Simulator/' }
@@ -166,7 +166,7 @@ export const techItems: TechItem[] = [
       { name: 'Portfolio Website', slug: 'axyl-casc-portfolio-website', url: 'https://github.com/axyl-casc/portfolio_code' },
       { name: 'Fancy Pants Outfitters', slug: 'fancy-pants-outfitters-react-demo', url: 'https://acare3.github.io/4513_2_website/' },
       { name: 'GoGuesser', slug: 'goguesser', url: 'https://goguesser.onrender.com/' },
-      { name: 'Companion Baduk', slug: 'beginner-go-ai-game', url: 'https://zxnashx.itch.io/beginner-go-game' }
+      { name: 'Companion Baduk', slug: 'beginner-go-ai-game', url: '/projects/beginner-go-ai-game' }
     ],
     tags: ['Tailwind CSS', 'UI/UX', 'Frontend'],
     featured: false
@@ -185,7 +185,7 @@ export const techItems: TechItem[] = [
       'Custom window controls, keyboard shortcuts, and standalone packaging'
     ],
     projects: [
-      { name: 'Beginner GO AI Game (Companion Baduk)', slug: 'beginner-go-ai-game', url: 'https://zxnashx.itch.io/beginner-go-game' },
+      { name: 'Beginner GO AI Game (Companion Baduk)', slug: 'beginner-go-ai-game', url: '/projects/beginner-go-ai-game' },
       { name: 'Go Library', slug: 'go-library', url: 'https://github.com/axyl-casc/GoLibrary' }
     ],
     tags: ['Electron', 'Node.js', 'Game Development', 'Offline-first'],
@@ -225,7 +225,7 @@ export const techItems: TechItem[] = [
     ],
     projects: [
       { name: 'GoGuesser', slug: 'goguesser', url: 'https://goguesser.onrender.com/' },
-      { name: 'Companion Baduk', slug: 'beginner-go-ai-game', url: 'https://zxnashx.itch.io/beginner-go-game' },
+      { name: 'Companion Baduk', slug: 'beginner-go-ai-game', url: '/projects/beginner-go-ai-game' },
       { name: 'CPU Scheduler (Scheduler Designer)', slug: 'cpu-scheduler', url: 'https://axyl-casc.github.io/Scheduler-Designer/' }
     ],
     tags: ['Visualization', 'Game Development', 'Algorithms'],
@@ -248,7 +248,7 @@ export const techItems: TechItem[] = [
     ],
     projects: [
       { name: 'GoGuesser', slug: 'goguesser', url: 'https://goguesser.onrender.com/' },
-      { name: 'Companion Baduk', slug: 'beginner-go-ai-game', url: 'https://zxnashx.itch.io/beginner-go-game' },
+      { name: 'Companion Baduk', slug: 'beginner-go-ai-game', url: '/projects/beginner-go-ai-game' },
       { name: 'Go Library', slug: 'go-library', url: 'https://github.com/axyl-casc/GoLibrary' },
       { name: 'Portfolio Build System', slug: 'axyl-casc-portfolio-website', url: 'https://github.com/axyl-casc/portfolio_code' }
     ],
@@ -289,7 +289,7 @@ export const techItems: TechItem[] = [
       'Clean object-oriented and functional code with strong standard library utilization'
     ],
     projects: [
-      { name: 'Go AI Game Logic (Companion Baduk)', slug: 'beginner-go-ai-game', url: 'https://zxnashx.itch.io/beginner-go-game' },
+      { name: 'Go AI Game Logic (Companion Baduk)', slug: 'beginner-go-ai-game', url: '/projects/beginner-go-ai-game' },
       { name: 'Go Library SGF Parser', slug: 'go-library', url: 'https://github.com/axyl-casc/GoLibrary' },
       { name: 'CPU Scheduling Algorithms', slug: 'cpu-scheduler', url: 'https://axyl-casc.github.io/Scheduler-Designer/' }
     ],
@@ -494,7 +494,7 @@ export const techItems: TechItem[] = [
     ],
     projects: [
       { name: 'Go Library Local Archive', slug: 'go-library', url: 'https://github.com/axyl-casc/GoLibrary' },
-      { name: 'Companion Baduk', slug: 'beginner-go-ai-game', url: 'https://zxnashx.itch.io/beginner-go-game' }
+      { name: 'Companion Baduk', slug: 'beginner-go-ai-game', url: '/projects/beginner-go-ai-game' }
     ],
     tags: ['Database', 'SQL', 'Offline-first'],
     featured: true
@@ -665,7 +665,7 @@ export const techItems: TechItem[] = [
       'Game page custom styling, release changelogs, and player community engagement'
     ],
     projects: [
-      { name: 'Beginner GO AI Game (Companion Baduk)', slug: 'beginner-go-ai-game', url: 'https://zxnashx.itch.io/beginner-go-game' }
+      { name: 'Beginner GO AI Game (Companion Baduk)', slug: 'beginner-go-ai-game', url: '/projects/beginner-go-ai-game' }
     ],
     tags: ['Game Development', 'Distribution', 'Electron'],
     featured: false
@@ -726,7 +726,7 @@ export const techItems: TechItem[] = [
     projects: [
       { name: 'GoGuesser (Real-time Broadcasts)', slug: 'goguesser', url: 'https://goguesser.onrender.com/' },
       { name: 'Go Library (REST Endpoints)', slug: 'go-library', url: 'https://github.com/axyl-casc/GoLibrary' },
-      { name: 'Companion Baduk', slug: 'beginner-go-ai-game', url: 'https://zxnashx.itch.io/beginner-go-game' }
+      { name: 'Companion Baduk', slug: 'beginner-go-ai-game', url: '/projects/beginner-go-ai-game' }
     ],
     tags: ['Node.js', 'Express.js', 'Web App'],
     featured: false
@@ -772,13 +772,13 @@ export const PROJECT_STACK_PROFILES: ProjectStackProfile[] = [
   {
     projectName: 'Companion Baduk (Beginner GO AI Game)',
     projectSlug: 'beginner-go-ai-game',
-    liveUrl: 'https://zxnashx.itch.io/beginner-go-game',
+    liveUrl: '/projects/beginner-go-ai-game',
     role: 'AI Logic Developer & UI Integrator',
     summary: 'Educational Go game tailored for newcomers, featuring transparent heuristic AI opponents, step-by-step rule explanations, packaged as a standalone desktop Electron app.',
     frontend: ['Data Viz & Board Interfaces (Canvas / WGo.js)', 'Vanilla HTML5 / CSS3 / JavaScript', 'Electron'],
     backend: ['Node.js', 'Python', 'C & C++'],
     database: ['SQLite', 'Browser LocalStorage & Offline Cache'],
-    server: ['Itch.io (Desktop Distribution)', 'REST & WebSocket Protocol APIs']
+    server: ['Desktop Application Packaging', 'REST & WebSocket Protocol APIs']
   },
   {
     projectName: 'Fancy Pants Outfitters (E-Commerce Web Demo)',
