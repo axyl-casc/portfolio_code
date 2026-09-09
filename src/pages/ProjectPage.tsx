@@ -87,6 +87,17 @@ export function ProjectPage({ project }: { project: Project }) {
               </a>
             )}
 
+            {project.downloadUrl && (
+              <a
+                href={project.downloadUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-secondary btn-sm sm:btn-md rounded-full px-6 shadow-md"
+              >
+                Download on itch.io ↗
+              </a>
+            )}
+
             {project.demoUrl && project.githubUrl && (
               <a
                 href={project.githubUrl}
