@@ -232,20 +232,26 @@ export function HomePage() {
             </div>
             <div className="pt-3 border-t border-base-content/10 flex flex-wrap items-center gap-3">
               <a
-                href="https://axyl-casc.github.io/CompiledWebsite/"
-                target="_blank"
-                rel="noreferrer"
+                href="/projects/assembly-board-game"
                 className="btn btn-primary btn-sm rounded-full"
               >
-                Project Website ↗
+                Project Details →
               </a>
               <a
-                href="https://axyl-casc.github.io/AsmBoardgame"
+                href="https://axyl-casc.github.io/CompiledWebsite/"
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-outline btn-sm rounded-full"
               >
-                Play Web Prototype ↗
+                Project Website ↗
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.compiled.game"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-ghost btn-sm rounded-full text-xs"
+              >
+                Google Play ↗
               </a>
             </div>
           </div>

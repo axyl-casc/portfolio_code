@@ -15,6 +15,14 @@ import defenderMenu from './assets/images/projects/defender/menu.png';
 
 import amdPresentationPdf from './assets/images/projects/anscombes_quartet/AMD Math Presentation.pdf?url';
 
+import compiledMainMenu from './assets/images/projects/compiled/main_menu.jpeg';
+import compiledPlayTab1 from './assets/images/projects/compiled/play_tab_1.jpeg';
+import compiledPlayTab2 from './assets/images/projects/compiled/play_tab_2.jpeg';
+import compiledTutorial from './assets/images/projects/compiled/tutorial_section.jpeg';
+import compiledDictionary from './assets/images/projects/compiled/dictionary.jpeg';
+import compiledPassNPlay from './assets/images/projects/compiled/passnplay.jpeg';
+import compiledLogo from './assets/images/projects/compiled/logo_with_text.png';
+
 export const badukAssets = {
   intro: badukIntro,
   gameplay1: badukGameplay1,
@@ -53,3 +61,22 @@ export const defenderAssets = {
 export const anscombesAssets = {
   presentationPdf: amdPresentationPdf
 };
+
+export const compiledAssets = {
+  logo: compiledLogo,
+  mainMenu: compiledMainMenu,
+  playTab1: compiledPlayTab1,
+  playTab2: compiledPlayTab2,
+  tutorial: compiledTutorial,
+  dictionary: compiledDictionary,
+  passNPlay: compiledPassNPlay,
+  gallery: [
+    { src: compiledPlayTab2, caption: 'Program Board: Staging instructions into the shared cyclic memory loop with CPU registers (R0–R3) and condition flags (Z, N, C, V)' },
+    { src: compiledPlayTab1, caption: 'Command Deck: Tactical card hand management and private objective tracking' },
+    { src: compiledMainMenu, caption: 'Main Menu: Mode selection including singleplayer CPU sparring, pass-and-play local multiplayer, and tutorial' },
+    { src: compiledTutorial, caption: 'Interactive 20-Lesson Curriculum: Step-by-step instruction covering registers, memory loops, branch jumps, and sabotage' },
+    { src: compiledDictionary, caption: 'Card Dictionary: Full reference suite for all 31 executable instructions across Basic, Intermediate, and Advanced tiers' },
+    { src: compiledPassNPlay, caption: 'Pass & Play: Same-device turn-based multiplayer with private hands, hidden objectives, and shared CPU execution' }
+  ]
+};
+

@@ -77,7 +77,13 @@ function App() {
   const projectMatch = path.match(/^\/projects\/([^/]+)\/?$/);
   const hobbyMatch = path.match(/^\/hobbies\/([^/]+)\/?$/);
   const tagMatch = path.match(/^\/tags\/([^/]+)\/?$/);
-  const project = projectMatch ? projects.find((item) => item.slug === projectMatch[1]) : undefined;
+  const project = projectMatch
+    ? projects.find(
+        (item) =>
+          item.slug === projectMatch[1] ||
+          (item.slug === 'assembly-board-game' && (projectMatch[1] === 'compiled' || projectMatch[1] === 'compiled-game'))
+      )
+    : undefined;
   const hobby = hobbyMatch ? hobbies.find((item) => item.slug === hobbyMatch[1]) : undefined;
   const tag = tagMatch ? decodeURIComponent(tagMatch[1]) : undefined;
 

@@ -1,5 +1,5 @@
 import type { Project } from './types';
-import { badukAssets, defenderAssets, anscombesAssets } from './projectAssets';
+import { badukAssets, defenderAssets, anscombesAssets, compiledAssets } from './projectAssets';
 
 export const projects: Project[] = [
   {
@@ -374,14 +374,120 @@ export const projects: Project[] = [
   },
   {
     slug: 'assembly-board-game',
-    title: 'Assembly Board Game (Compiled)',
+    title: 'Compiled (Android Strategy Game)',
     shortDescription:
-      'Compiled: A strategy board game where players manipulate CPU registers and pursue secret objectives. Work-in-progress Android application built with React Native, with a playable web prototype.',
+      'A tactical strategy board game for Android where players manipulate CPU registers in a shared cyclic loop, evaluate status flags, and pursue secret objectives. Engineered with React Native and TypeScript.',
+    longDescription: [
+      'Compiled is an original strategy board game and native mobile application engineered for Android using React Native and TypeScript. The game translates fundamental low-level computer architecture—including 4-bit registers, cyclic instruction queues, status flags, and arithmetic overflow—into an accessible, highly competitive tabletop experience.',
+      'Players stage instruction cards into a shared circular program loop (configured with 8, 12, or 16 memory slots) and step a shared 4-bit CPU through execution. The machine features four shared registers (R0 through R3) and four hardware status flags (Z: Zero, N: Negative, C: Carry, and V: Overflow). Because all players manipulate the exact same machine state, every staged instruction has immediate consequences: a command placed to advance your own agenda might inadvertently hand an opponent their victory condition or trigger arithmetic wraparound that derails the table.',
+      'The application provides two core gameplay modes: singleplayer against calibrated CPU rivals (1 to 3 opponents with adjustable difficulty) and same-device pass-and-play multiplayer for 2 to 4 local players. A comprehensive 20-lesson interactive tutorial curriculum introduces players to number bases, two\'s complement, register moves, branching, and overflow traps. Built with a privacy-first architecture, Compiled features 100% offline local gameplay with zero ads, analytics trackers, or cloud accounts.'
+    ],
+    highlights: [
+      'Native Android strategy game built with React Native and TypeScript, featuring high-DPI rendering and tactile haptic feedback',
+      'Shared cyclic memory architecture (8, 12, or 16 slots) driving a deterministic virtual 4-bit CPU model',
+      'Four shared general-purpose registers (R0–R3) and 4 status flags (Z: Zero, N: Negative, C: Carry, V: Overflow)',
+      '31 executable instruction cards across 3 unlockable tiers: Basic (9), Intermediate (19), and Advanced (31)',
+      'Dual play modes: Adaptive singleplayer against 1–3 CPU AI rivals and same-device Pass-and-Play local multiplayer (2–4 players)',
+      'Interactive 20-lesson instructional curriculum teaching binary math, two\'s complement arithmetic, branch jumps, and sabotage',
+      'Private objective engine requiring dual simultaneous condition checks at turn completion to secure victory',
+      'Privacy-first engineering: 100% local device state persistence with zero ads, analytics SDKs, or cloud accounts'
+    ],
+    description:
+      'A tactical strategy board game for Android where players manipulate CPU registers in a shared cyclic loop, evaluate status flags, and pursue secret objectives. Engineered with React Native and TypeScript.',
     projectUrl: 'https://axyl-casc.github.io/CompiledWebsite/',
     demoUrl: 'https://axyl-casc.github.io/CompiledWebsite/',
-    githubUrl: 'https://github.com/axyl-casc/AsmBoardgame',
+    demoLabel: 'Project Website ↗',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.compiled.game',
+    thumbnail: compiledAssets.playTab2,
+    gallery: compiledAssets.gallery,
+    caseStudy: {
+      overview:
+        'Compiled is a mobile strategy game developed for Android that reimagines low-level assembly programming as a competitive tabletop board game. Players share a single cyclic memory buffer and four 4-bit registers, staging cards to trigger arithmetic, bitwise shifts, and conditional jumps while racing to fulfill secret objectives.',
+      problem:
+        'Most educational programming games either present dry syntactic quizzes or overwhelm players with complex sandbox environments that feel like work. The challenge was to isolate the genuine thrill of systems programming—the joy of clever bitwise tricks, the surprise of arithmetic overflow, and the puzzle of instruction ordering—and package it into a fast-paced, accessible mobile game that non-programmers and computer scientists alike can enjoy.',
+      solution:
+        'Designed a shared-state game loop where the "board" is an 8, 12, or 16-slot circular instruction queue and the "game pieces" are four 4-bit registers (R0–R3) with status flags (Z, N, C, V). Players take turns staging an instruction card into an open slot or overwriting existing code, then run the CPU. Because registers and memory are shared, every turn introduces emergent sabotage, tactical misdirection, and tense arithmetic calculations.',
+      architectureDiagram: `┌────────────────────────────────────────────────────────┐
+│               React Native Mobile UI                   │
+│   (Program Board, Command Deck, Carousel, Dialogs)     │
+└──────────────────────────┬─────────────────────────────┘
+                           │ State Dispatch / Actions
+┌──────────────────────────▼─────────────────────────────┐
+│             Game Turn & Match Orchestrator             │
+│    (Stage -> Review -> Advance -> Execute -> Check)    │
+└──────────────────────────┬─────────────────────────────┘
+                           │ Instruction Stream
+┌──────────────────────────▼─────────────────────────────┐
+│               Virtual 4-Bit CPU Engine                 │
+│  ┌───────────────────┐  ┌─────────────┐  ┌───────────┐ │
+│  │ ALU (Add/Sub/Bit) │  │ Registers   │  │ Flags     │ │
+│  │ Signed & Unsigned │  │ (R0, R1,    │  │ (Z, N,    │ │
+│  │ 2's Complement    │  │  R2, R3)    │  │  C, V)    │ │
+│  └───────────────────┘  └─────────────┘  └───────────┘ │
+│  ┌───────────────────────────────────────────────────┐ │
+│  │ Cyclic Memory Loop (8 / 12 / 16 Slots, 5 BRA Max) │ │
+│  └───────────────────────────────────────────────────┘ │
+└──────────────────────────┬─────────────────────────────┘
+                           │ State Queries & Evaluation
+┌──────────────────────────▼─────────────────────────────┐
+│          Heuristic CPU Rival & AI Engine               │
+│  (Goal Evaluation, Sabotage Heuristics, Difficulty)    │
+└──────────────────────────┬─────────────────────────────┘
+                           │ Local Device Storage
+┌──────────────────────────▼─────────────────────────────┐
+│         AsyncStorage / Local Game State                │
+│    (Curriculum Progress, Unlocked Tiers, Settings)     │
+└────────────────────────────────────────────────────────┘`,
+      architectureDescription:
+        'The application uses a unidirectional data flow architecture optimized for 60 FPS mobile rendering. The Virtual CPU Engine implements strict 4-bit two\'s complement arithmetic and flag updates (Zero, Negative, Carry, Overflow), isolating core computer science logic from presentation. The Game Turn Orchestrator manages the 5-phase turn sequence (Stage, Review, Advance, Execute, Check), while the AI engine evaluates candidate card placements by simulating forward register outcomes against secret objective probability matrices.',
+      keyDecisions: [
+        {
+          title: 'Shared-Register Zero-Sum Architecture',
+          description:
+            'Rather than giving each player an isolated board, all players manipulate the identical 4-bit register bank (R0–R3). This creates high-stakes tactical friction where any optimization for player A directly impacts player B\'s board state.'
+        },
+        {
+          title: 'Cyclic Memory Loop with 5-Instruction Branch Bounds',
+          description:
+            'To prevent infinite execution loops while preserving the tactical power of branching (BRA -3 to +3), the execution engine limits consecutive branch chains to 5 instructions before advancing the Program Counter.'
+        },
+        {
+          title: 'Strict 4-Bit Limits & Two\'s Complement Overflow',
+          description:
+            'Restricting values to 4 bits (-8 to +7 signed, 0 to 15 unsigned) makes mental math instant while producing frequent, dramatic arithmetic overflows that turn innocuous moves into game-changing surprises.'
+        },
+        {
+          title: 'Zero-Telemetry, 100% Offline Architecture',
+          description:
+            'In strict adherence to digital minimalism and user privacy, the app contains zero ads, third-party analytics SDKs, or cloud accounts. All match states and tutorial progress are persisted strictly on-device.'
+        }
+      ],
+      challenges: [
+        {
+          title: 'Accurate Flag Modeling (Carry vs. Overflow)',
+          description:
+            'Designing a clear distinction between unsigned carry (C) and signed two\'s complement overflow (V) required rigorous test suites to ensure that instructions like ADD #1 vs ADDU #1 set flags identically to real hardware architectures.'
+        },
+        {
+          title: 'Balancing Heuristic AI Rivals under Imperfect Information',
+          description:
+            'Because players keep their victory objectives secret, CPU rivals evaluate moves using probabilistic heuristics—balancing progress toward their own objectives against disruptive sabotage of suspicious opponent moves.'
+        },
+        {
+          title: 'Mobile-Optimized Cyclic Program Board UX',
+          description:
+            'Visualizing a cyclic memory track, 4 registers with binary/hex representations, and card hands on compact mobile displays required a responsive layout with smooth sliding transitions.'
+        }
+      ],
+      results: [
+        'Successfully launched into closed testing on Google Play (com.compiled.game) for Android',
+        'Engineered full 31-instruction card suite spanning Basic, Intermediate, and Advanced tiers',
+        'Built interactive 20-lesson curriculum and full same-device pass-and-play multiplayer',
+        'Official companion project website live at axyl-casc.github.io/CompiledWebsite'
+      ]
+    },
     section: 'other',
-    tags: ['React Native', 'TypeScript', 'Android', 'Assembly', 'Game Development', 'Education']
+    tags: ['Android', 'React Native', 'TypeScript', 'Assembly', 'Mobile App', 'Game Development', 'Education']
   },
   {
     slug: 'airplane-package-scheduler',

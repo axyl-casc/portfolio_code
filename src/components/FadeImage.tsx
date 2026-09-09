@@ -68,10 +68,12 @@ export function FadeImage({
     />
   );
 
+  const wrapperClass = wrapperClassName !== undefined ? wrapperClassName : 'h-full w-full flex items-center justify-center';
+
   if (!wrapperClassName && !showSkeleton) return img;
 
   return (
-    <div className={`relative ${wrapperClassName ?? ''}`}>
+    <div className={`relative ${wrapperClass}`}>
       {showSkeleton && !loaded && (
         <div className="absolute inset-0 animate-pulse bg-base-300/50 rounded-[inherit] pointer-events-none" />
       )}

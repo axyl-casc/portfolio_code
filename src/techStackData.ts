@@ -436,7 +436,7 @@ export const techItems: TechItem[] = [
       'Deep comprehension of memory layouts, cache alignments, and compiler instruction lowering'
     ],
     projects: [
-      { name: 'Assembly Board Game', slug: 'assembly-board-game', url: 'https://axyl-casc.github.io/AsmBoardgame' }
+      { name: 'Compiled (Android Strategy Game)', slug: 'assembly-board-game', url: 'https://axyl-casc.github.io/CompiledWebsite/' }
     ],
     tags: ['Assembly', 'Systems Programming', 'Game Development'],
     featured: false
@@ -643,7 +643,7 @@ export const techItems: TechItem[] = [
       { name: 'Portfolio Website', slug: 'axyl-casc-portfolio-website', url: 'https://github.com/axyl-casc/portfolio_code' },
       { name: 'Fancy Pants Outfitters Demo', slug: 'fancy-pants-outfitters-react-demo', url: 'https://acare3.github.io/4513_2_website/' },
       { name: 'Infinite Mind Games Wiki', slug: 'infinite-mind-games-wiki-docs', url: 'https://infinite-mind-pictures-inc.github.io/Infinite-Mind-Wiki/' },
-      { name: 'Assembly Board Game', slug: 'assembly-board-game', url: 'https://axyl-casc.github.io/AsmBoardgame' },
+      { name: 'Compiled (Android Strategy Game)', slug: 'assembly-board-game', url: 'https://axyl-casc.github.io/CompiledWebsite/' },
       { name: 'CPU Scheduler', slug: 'cpu-scheduler', url: 'https://axyl-casc.github.io/Scheduler-Designer/' },
       { name: 'Daily Training Game', slug: 'daily-training-game', url: 'https://axyl-casc.github.io/TrainingGame/' },
       { name: 'Dice Simulator', slug: 'dice-simulator', url: 'https://axyl-casc.github.io/Dice-Simulator/' }
@@ -836,14 +836,14 @@ export const PROJECT_STACK_PROFILES: ProjectStackProfile[] = [
     server: ['GitHub Pages & Actions CI/CD']
   },
   {
-    projectName: 'Assembly Board Game',
+    projectName: 'Compiled (Android Strategy Game)',
     projectSlug: 'assembly-board-game',
-    liveUrl: 'https://axyl-casc.github.io/AsmBoardgame',
-    role: 'Low-level Developer',
-    summary: 'A board game programmed in assembly instruction logic with compiled web-accessible emulation, turn resolution, and win condition checks.',
-    frontend: ['Vanilla HTML5 / CSS3 / JavaScript'],
-    backend: ['Assembly'],
-    database: [],
-    server: ['GitHub Pages & Actions CI/CD']
+    liveUrl: 'https://axyl-casc.github.io/CompiledWebsite/',
+    role: 'Android & Game Logic Developer',
+    summary: 'A tactical board game for Android where players manipulate 4-bit CPU registers in a shared cyclic memory loop and pursue hidden victory conditions.',
+    frontend: ['React Native / TypeScript'],
+    backend: ['Virtual 4-Bit CPU Engine'],
+    database: ['AsyncStorage (Local Persistence)'],
+    server: ['Google Play (Closed Testing) & GitHub Pages']
   }
 ];

@@ -36,10 +36,8 @@ export function ProjectCard({
           <FadeImage
             src={project.thumbnail}
             alt={`${project.title} preview`}
-            wrapperClassName="h-full w-full overflow-hidden"
-            className={`h-full w-full object-cover ${
-              isFlagship ? 'object-top md:object-cover' : 'object-top'
-            }`}
+            wrapperClassName="h-full w-full overflow-hidden flex items-center justify-center bg-base-300/30"
+            className="max-h-full max-w-full w-auto h-auto object-contain p-1.5 transition-transform duration-300 group-hover:scale-[1.03]"
             showSkeleton={true}
           />
         ) : project.slug === 'goguesser' ? (

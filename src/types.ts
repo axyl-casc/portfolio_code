@@ -26,6 +26,8 @@ export type Project = {
   projectUrl: string;
   githubUrl?: string;
   demoUrl?: string;
+  demoLabel?: string;
+  playStoreUrl?: string;
   downloadUrl?: string;
   videoUrl?: string;
   pdfUrl?: string;

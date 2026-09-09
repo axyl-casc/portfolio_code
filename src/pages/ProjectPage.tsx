@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from 'react';
+import { useState, useEffect, type CSSProperties } from 'react';
 import type { Project } from '../types';
 import { getTagHue } from '../utils/tagColors';
 import { tagPath } from '../utils/tags';
@@ -6,6 +6,24 @@ import { FadeImage } from '../components/FadeImage';
 
 export function ProjectPage({ project }: { project: Project }) {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [isZoomModalOpen, setIsZoomModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isZoomModalOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsZoomModalOpen(false);
+      } else if (e.key === 'ArrowLeft' && project.gallery && project.gallery.length > 1) {
+        setSelectedImageIndex((prev) => (prev > 0 ? prev - 1 : project.gallery!.length - 1));
+      } else if (e.key === 'ArrowRight' && project.gallery && project.gallery.length > 1) {
+        setSelectedImageIndex((prev) => (prev < project.gallery!.length - 1 ? prev + 1 : 0));
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isZoomModalOpen, project.gallery]);
 
   const hasGallery = project.gallery && project.gallery.length > 0;
   const currentImage = hasGallery ? project.gallery![selectedImageIndex] : null;
@@ -63,7 +81,7 @@ export function ProjectPage({ project }: { project: Project }) {
                 rel="noreferrer"
                 className="btn btn-primary btn-sm sm:btn-md rounded-full px-6 shadow-md"
               >
-                Live Project ↗
+                {project.demoLabel || 'Live Project ↗'}
               </a>
             ) : project.githubUrl ? (
               <a
@@ -75,6 +93,17 @@ export function ProjectPage({ project }: { project: Project }) {
                 GitHub Repository ↗
               </a>
             ) : null}
+
+            {project.playStoreUrl && (
+              <a
+                href={project.playStoreUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-accent btn-sm sm:btn-md rounded-full px-6 shadow-md text-slate-950 font-semibold"
+              >
+                Google Play (Closed Test) ↗
+              </a>
+            )}
 
             {project.pdfUrl && (
               <a
@@ -141,12 +170,23 @@ export function ProjectPage({ project }: { project: Project }) {
           </div>
 
           {/* Main Selected Image */}
-          <div className="relative max-h-[440px] aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden rounded-2xl bg-base-300/40 border border-base-content/10 shadow-inner flex items-center justify-center">
+          <div
+            className="relative w-full h-[50vh] sm:h-[62vh] lg:h-[70vh] min-h-[340px] max-h-[720px] overflow-hidden rounded-2xl bg-base-300/30 border border-base-content/10 shadow-inner flex items-center justify-center p-2 sm:p-4 group cursor-zoom-in"
+            onClick={() => setIsZoomModalOpen(true)}
+            title="Click to expand screenshot to full screen"
+          >
             <FadeImage
               src={currentImage.src}
               alt={currentImage.caption || `${project.title} screenshot`}
-              className="max-h-full max-w-full object-contain"
+              wrapperClassName="h-full w-full flex items-center justify-center"
+              className="max-h-full max-w-full w-auto h-auto object-contain rounded-xl shadow-sm transition-transform duration-300 group-hover:scale-[1.01]"
             />
+            <span className="absolute bottom-3 right-3 text-xs bg-base-100/85 backdrop-blur-sm text-base-content/80 font-medium px-2.5 py-1 rounded-full border border-base-content/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 shadow-sm">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+              </svg>
+              Click to Expand
+            </span>
           </div>
 
           {currentImage.caption && (
@@ -173,11 +213,85 @@ export function ProjectPage({ project }: { project: Project }) {
                   <FadeImage
                     src={item.src}
                     alt=""
-                    className="w-full h-full object-cover"
+                    wrapperClassName="w-full h-full flex items-center justify-center bg-base-300/40"
+                    className="max-h-full max-w-full w-auto h-auto object-contain p-0.5"
                     showSkeleton={false}
                   />
                 </button>
               ))}
+            </div>
+          )}
+
+          {/* Fullscreen Lightbox Modal */}
+          {isZoomModalOpen && currentImage && (
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-label="Enlarged screenshot preview"
+              className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-8"
+              onClick={() => setIsZoomModalOpen(false)}
+            >
+              <div className="absolute top-4 right-4 flex items-center gap-2 z-10">
+                <span className="text-xs text-white/70 font-mono bg-black/40 px-2.5 py-1 rounded-full border border-white/10">
+                  {selectedImageIndex + 1} / {project.gallery!.length}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setIsZoomModalOpen(false)}
+                  className="btn btn-circle btn-sm btn-ghost text-white hover:bg-white/20 text-base font-bold"
+                  aria-label="Close fullscreen preview"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div
+                className="relative max-h-[85vh] max-w-[95vw] flex items-center justify-center"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img
+                  src={currentImage.src}
+                  alt={currentImage.caption || `${project.title} screenshot`}
+                  className="max-h-[85vh] max-w-[95vw] w-auto h-auto object-contain rounded-xl shadow-2xl select-none"
+                />
+              </div>
+
+              {currentImage.caption && (
+                <p
+                  className="mt-3 text-sm text-center text-white/90 max-w-2xl px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/10"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {currentImage.caption}
+                </p>
+              )}
+
+              {/* Prev / Next Controls */}
+              {project.gallery!.length > 1 && (
+                <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedImageIndex((prev) => (prev > 0 ? prev - 1 : project.gallery!.length - 1));
+                    }}
+                    className="btn btn-circle btn-sm sm:btn-md bg-black/50 text-white border border-white/10 hover:bg-black/80 pointer-events-auto shadow-xl"
+                    aria-label="Previous image"
+                  >
+                    ❮
+                  </button>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedImageIndex((prev) => (prev < project.gallery!.length - 1 ? prev + 1 : 0));
+                    }}
+                    className="btn btn-circle btn-sm sm:btn-md bg-black/50 text-white border border-white/10 hover:bg-black/80 pointer-events-auto shadow-xl"
+                    aria-label="Next image"
+                  >
+                    ❯
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </section>
@@ -209,6 +323,21 @@ export function ProjectPage({ project }: { project: Project }) {
               {project.caseStudy.overview}
             </p>
           </div>
+
+          {/* Key Features & Highlights */}
+          {project.highlights && project.highlights.length > 0 && (
+            <div className="content-card p-6 sm:p-8 space-y-4">
+              <h2 className="text-xl font-bold text-primary">Key Features &amp; Engineering Highlights</h2>
+              <ul className="grid sm:grid-cols-2 gap-3 text-sm sm:text-base text-base-content/85 leading-relaxed">
+                {project.highlights.map((highlight, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-base-200/50 border border-base-content/10">
+                    <span className="text-primary font-bold text-base shrink-0">✦</span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Problem & Solution Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -344,20 +473,10 @@ export function ProjectPage({ project }: { project: Project }) {
       )}
 
       {/* Bottom Navigation Row */}
-      <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-4 pt-4">
+      <div className="max-w-5xl mx-auto flex items-center pt-4">
         <a href={backHref} className="btn btn-outline rounded-full px-6 font-medium">
           {backLabel}
         </a>
-        {project.githubUrl && (
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-ghost rounded-full text-sm"
-          >
-            View on GitHub ↗
-          </a>
-        )}
       </div>
     </main>
   );
