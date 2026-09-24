@@ -5,6 +5,8 @@ import githubIconLight from '../assets/images/github/resized_GitHub_Invertocat_W
 import linkedinIconDark from '../assets/images/github/resized_InBug-Black.png';
 import linkedinIconLight from '../assets/images/github/resized_InBug-White.png';
 
+import siteIcon from '../assets/images/icon.JPG';
+
 type NavLink = { label: string; href: string };
 
 type HeaderProps = {
@@ -56,9 +58,13 @@ export function Header({ title, subtitle, links, theme, onThemeChange }: HeaderP
             href="/"
             className="flex items-center gap-2.5 font-bold text-lg tracking-tight text-base-content hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg px-1"
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-content font-extrabold text-sm shadow-sm">
-              AC
-            </span>
+            <img
+              src={siteIcon}
+              alt="Axyl Carefoot-Schulz"
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-lg object-cover shadow-sm ring-1 ring-base-content/10"
+            />
             <span className="hidden sm:inline">Axyl Carefoot-Schulz</span>
           </a>
 

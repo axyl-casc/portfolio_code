@@ -121,6 +121,7 @@ export const techItems: TechItem[] = [
     ],
     projects: [
       { name: 'Assembly Board Game (Compiled)', slug: 'assembly-board-game', url: 'https://axyl-casc.github.io/CompiledWebsite/' },
+      { name: 'Companion Baduk (Beginner GO AI Game)', slug: 'beginner-go-ai-game', url: '/projects/beginner-go-ai-game' },
       { name: 'CPU Scheduler (Scheduler Designer)', slug: 'cpu-scheduler', url: 'https://axyl-casc.github.io/Scheduler-Designer/' },
       { name: 'Daily Training Game', slug: 'daily-training-game', url: 'https://axyl-casc.github.io/TrainingGame/' },
       { name: 'Dice Simulator', slug: 'dice-simulator', url: 'https://axyl-casc.github.io/Dice-Simulator/' }
@@ -165,8 +166,7 @@ export const techItems: TechItem[] = [
     projects: [
       { name: 'Portfolio Website', slug: 'axyl-casc-portfolio-website', url: 'https://github.com/axyl-casc/portfolio_code' },
       { name: 'Fancy Pants Outfitters', slug: 'fancy-pants-outfitters-react-demo', url: 'https://acare3.github.io/4513_2_website/' },
-      { name: 'GoGuesser', slug: 'goguesser', url: 'https://goguesser.onrender.com/' },
-      { name: 'Companion Baduk', slug: 'beginner-go-ai-game', url: '/projects/beginner-go-ai-game' }
+      { name: 'GoGuesser', slug: 'goguesser', url: 'https://goguesser.onrender.com/' }
     ],
     tags: ['Tailwind CSS', 'UI/UX', 'Frontend'],
     featured: false
@@ -448,11 +448,11 @@ export const techItems: TechItem[] = [
     badge: 'Command-line Automation & OS',
     rating: 4,
     proficiencyLabel: 'Advanced',
-    description: 'Unix shell scripting and pipeline automation for build environments, batch file transformations, process inspection, and dev environments.',
+    description: 'Linux shell scripting and pipeline automation for build environments, batch file transformations, process inspection, and dev environments.',
     highlights: [
       'Constructed complex shell pipelines with stdin/stdout streaming, grep, sed, and awk',
       'Automated repository maintenance, static asset generation, and build scripts',
-      'Engineered a complete Unix shell from scratch handling job control, aliases, and redirects'
+      'Engineered a complete Linux shell from scratch handling job control, aliases, and redirects'
     ],
     projects: [
       { name: 'Linux Shell Development', slug: 'linux-shell-development', url: 'https://github.com/axyl-casc/linux-shell?tab=readme-ov-file#linux-shell' }

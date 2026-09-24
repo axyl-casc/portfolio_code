@@ -27,13 +27,13 @@ export const projects: Project[] = [
     gallery: badukAssets.gallery,
     caseStudy: {
       overview:
-        'Companion Baduk is a standalone desktop application and instructional platform designed to make learning the ancient game of Go (Baduk) intuitive, rewarding, and transparent. It combines an accessible Electron and React interface with a dedicated Python AI engine capable of evaluating board positions and explaining tactical ideas in plain English.',
+        'Companion Baduk is a standalone desktop application and instructional platform designed to make learning the ancient game of Go (Baduk) intuitive, rewarding, and transparent. It combines an accessible Electron interface built with HTML5 Canvas, CSS3, and Vanilla JavaScript with a dedicated Python AI engine capable of evaluating board positions and explaining tactical ideas in plain English.',
       problem:
         'Go is notoriously difficult for novices: the state space exceeds the number of atoms in the universe, and modern superhuman neural networks (KataGo, Leela Zero) act as inscrutable black boxes that provide win percentages without actionable instruction. Beginners need opponents that scale naturally, make human-like mistakes, and explain why a move succeeds or fails.',
       solution:
         'Engineered an explainable Go engine that couples state-space heuristic evaluation with Monte Carlo search. The engine analyzes liberty counts, eye shapes, ladder sequences, and influence gradients, mapping tactical board states to human-readable explanations. Packaged within a desktop app featuring tutorials, Tsumego puzzles, and belt-based progression.',
       architectureDiagram: `┌────────────────────────────────────────────────────────┐
-│                 Electron / React UI                    │
+│          Electron / Vanilla HTML5 & Canvas UI          │
 │     (Interactive Goban, Tsumego Puzzles, Tutorials)    │
 └──────────────────────────┬─────────────────────────────┘
                            │ IPC / Child Process
@@ -57,7 +57,7 @@ export const projects: Project[] = [
 │      (Player Belt Ranks, Puzzles, Game Archives)       │
 └────────────────────────────────────────────────────────┘`,
       architectureDescription:
-        'The application separates concerns cleanly: the presentation layer in Electron and React handles high-DPI board rendering, move animations, and audio. The Node.js desktop layer orchestrates engine child processes, manages user session files, and relays commands over structured JSON streams to the Python AI core. The Python engine executes heuristic evaluation, Monte Carlo search rollouts, and rule adjudication, persisting player stats and unlockables in an embedded SQLite database.',
+        'The application separates concerns cleanly: the presentation layer in Electron uses HTML5 Canvas, CSS3, and Vanilla JavaScript to handle high-DPI board rendering, move animations, and audio. The Node.js desktop layer orchestrates engine child processes, manages user session files, and relays commands over structured JSON streams to the Python AI core. The Python engine executes heuristic evaluation, Monte Carlo search rollouts, and rule adjudication, persisting player stats and unlockables in an embedded SQLite database.',
       keyDecisions: [
         {
           title: 'Explainable Heuristics over Pure Neural Networks',
@@ -331,10 +331,10 @@ export const projects: Project[] = [
     slug: 'linux-shell-development',
     title: 'Linux Shell Development',
     shortDescription:
-      'A custom Unix command-line shell built in C featuring process management, I/O redirection, piping, and signal handling.',
+      'A custom Linux command-line shell built in C featuring process management, I/O redirection, piping, and signal handling.',
     longDescription: [
-      'Built as a comprehensive systems programming project for COMP 3659 (Operating Systems), this project implements a custom POSIX-compliant Unix shell in C. The shell provides an interactive command-line interface that mirrors core functionality of shells like Bash, managing process hierarchies and system resources through low-level Linux system calls.',
-      'The implementation parses complex command strings into abstract execution trees, supporting tokenized arguments, path resolution, and execution via fork() and execvp(). The shell implements multi-stage inter-process communication pipelines (cmd1 | cmd2 | cmd3) using Unix pipes and file descriptor duplication (dup2()), handles input/output redirection (<, >, >>), tracks background jobs running with &, and manages OS signals like SIGINT (Ctrl+C) and SIGTSTP to protect parent shell stability.'
+      'Built as a comprehensive systems programming project for COMP 3659 (Operating Systems), this project implements a custom POSIX-compliant Linux shell in C. The shell provides an interactive command-line interface that mirrors core functionality of shells like Bash, managing process hierarchies and system resources through low-level Linux system calls.',
+      'The implementation parses complex command strings into abstract execution trees, supporting tokenized arguments, path resolution, and execution via fork() and execvp(). The shell implements multi-stage inter-process communication pipelines (cmd1 | cmd2 | cmd3) using Linux pipes and file descriptor duplication (dup2()), handles input/output redirection (<, >, >>), tracks background jobs running with &, and manages OS signals like SIGINT (Ctrl+C) and SIGTSTP to protect parent shell stability.'
     ],
     highlights: [
       'Process lifecycle management implementing fork(), execvp(), waitpid(), and background job tracking',
