@@ -137,7 +137,7 @@ export function ProjectPage({ project }: { project: Project }) {
                 rel="noreferrer"
                 className="btn btn-secondary btn-sm sm:btn-md rounded-full px-6 shadow-md"
               >
-                Download on itch.io ↗
+                View on Steam ↗
               </a>
             )}
 

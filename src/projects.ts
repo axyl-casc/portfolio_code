@@ -22,7 +22,7 @@ export const projects: Project[] = [
     description:
       'Desktop Go application built around beginner-friendly AI opponents and interactive learning tools. Includes a custom explainable Go engine using heuristic evaluation, Monte Carlo search, difficulty scaling, and human-readable move explanations.',
     projectUrl: '',
-    downloadUrl: 'https://zxnashx.itch.io/beginner-go-game',
+    downloadUrl: 'https://store.steampowered.com/app/4698830/Companion_Baduk/',
     thumbnail: badukAssets.gameplay1,
     gallery: badukAssets.gallery,
     caseStudy: {

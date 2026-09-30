@@ -317,7 +317,7 @@ export function HomePage() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-lg">
                 🔍
               </div>
-              <h3 className="text-lg font-bold text-base-content">Explainable AI (XAI)</h3>
+              <h3 className="text-lg font-bold text-base-content">Explainable AI for Go</h3>
               <p className="text-sm text-base-content/85 leading-relaxed">
                 Designed a custom Go AI engine that translates complex board topology, cutting points, and liberty counts into human-readable instructional sentences. Avoids opaque neural network outputs in favor of actionable feedback.
               </p>
