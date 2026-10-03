@@ -844,6 +844,6 @@ export const PROJECT_STACK_PROFILES: ProjectStackProfile[] = [
     frontend: ['React Native / TypeScript'],
     backend: ['Virtual 4-Bit CPU Engine'],
     database: ['AsyncStorage (Local Persistence)'],
-    server: ['Google Play (Closed Testing) & GitHub Pages']
+    server: ['Google Play & GitHub Pages']
   }
 ];

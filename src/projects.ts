@@ -21,7 +21,6 @@ export const projects: Project[] = [
     ],
     description:
       'Desktop Go application built around beginner-friendly AI opponents and interactive learning tools. Includes a custom explainable Go engine using heuristic evaluation, Monte Carlo search, difficulty scaling, and human-readable move explanations.',
-    projectUrl: '',
     downloadUrl: 'https://store.steampowered.com/app/4698830/Companion_Baduk/',
     thumbnail: badukAssets.gameplay1,
     gallery: badukAssets.gallery,
@@ -114,9 +113,8 @@ export const projects: Project[] = [
     ],
     description:
       'Shipped real-time multiplayer Go game guessing platform with live community vote broadcasting (100ms), automated 30-second SGF puzzle rotation, and AI vs. pro move evaluation.',
-    projectUrl: 'https://goguesser.onrender.com/',
     demoUrl: 'https://goguesser.onrender.com/',
-    githubUrl: 'https://github.com/axyl-casc/GoGuesser',
+    githubUrl: 'https://github.com/axyl-casc/GoGuesser?tab=readme-ov-file#goguesser',
     caseStudy: {
       overview:
         'GoGuesser is a deployed, full-stack real-time web game that challenges Go players worldwide to predict the next move in real tournament positions, comparing their intuition against superhuman AI engines and human professionals.',
@@ -162,8 +160,7 @@ export const projects: Project[] = [
     ],
     description:
       "Created an exploratory data analysis program in Python demonstrating the critical importance of visual data analysis, presented at MRU Research Days and the Alberta Mathematics Dialogue.",
-    projectUrl: 'https://github.com/axyl-casc/Anscombes_Research?tab=readme-ov-file#anscombes-quartet-research-project',
-    githubUrl: 'https://github.com/axyl-casc/Anscombes_Research',
+    githubUrl: 'https://github.com/axyl-casc/Anscombes_Research?tab=readme-ov-file#anscombes-quartet-research-project',
     pdfUrl: anscombesAssets.presentationPdf,
     caseStudy: {
       overview:
@@ -210,7 +207,6 @@ export const projects: Project[] = [
     ],
     description:
       'Recreated a classic arcade game using C and assembly, leveraging efficient memory management, hardware interrupts, and custom audio drivers on limited 16-bit hardware.',
-    projectUrl: 'https://github.com/axyl-casc/DefenderRemake/tree/main?tab=readme-ov-file#atari-st-game---defender',
     githubUrl: 'https://github.com/axyl-casc/DefenderRemake/tree/main?tab=readme-ov-file#atari-st-game---defender',
     videoUrl: defenderAssets.videoUrl,
     thumbnail: defenderAssets.gameplay,
@@ -299,7 +295,6 @@ export const projects: Project[] = [
     ],
     description:
       'An interactive documentation site built with Quartz, featuring guides, learning modules, and development notes for Infinite Mind Games projects.',
-    projectUrl: 'https://infinite-mind-pictures-inc.github.io/Infinite-Mind-Wiki/',
     demoUrl: 'https://infinite-mind-pictures-inc.github.io/Infinite-Mind-Wiki/',
     section: 'other',
     tags: ['Quartz 4', 'React', 'TypeScript', 'Documentation', 'Accessibility', 'UI/UX', 'Python']
@@ -322,7 +317,6 @@ export const projects: Project[] = [
     ],
     description:
       'A polished React storefront demo featuring curated fashion for trendsetters, workweek looks, and night-out fits.',
-    projectUrl: 'https://acare3.github.io/4513_2_website/',
     demoUrl: 'https://acare3.github.io/4513_2_website/',
     section: 'other',
     tags: ['React', 'Frontend', 'TypeScript', 'Tailwind CSS', 'Plotly.js', 'E-commerce']
@@ -345,8 +339,7 @@ export const projects: Project[] = [
     ],
     description:
       'Built a custom shell in C, handling concurrent commands and inter-process communication for a streamlined command-line experience.',
-    projectUrl: 'https://github.com/axyl-casc/linux-shell?tab=readme-ov-file#linux-shell',
-    githubUrl: 'https://github.com/axyl-casc/linux-shell',
+    githubUrl: 'https://github.com/axyl-casc/linux-shell?tab=readme-ov-file#linux-shell',
     section: 'other',
     tags: ['C / C++', 'Systems Programming', 'Linux', 'Concurrency', 'IPC']
   },
@@ -367,7 +360,6 @@ export const projects: Project[] = [
       'Custom workload designer with exportable configurations and comparative benchmarking plots'
     ],
     description: 'Run different CPU scheduling algorithms interactively and view the results afterwards.',
-    projectUrl: 'https://axyl-casc.github.io/Scheduler-Designer/',
     demoUrl: 'https://axyl-casc.github.io/Scheduler-Designer/',
     section: 'other',
     tags: ['Algorithms', 'Visualization', 'JavaScript', 'Operating Systems', 'Tailwind CSS']
@@ -394,7 +386,6 @@ export const projects: Project[] = [
     ],
     description:
       'A tactical strategy board game for Android where players manipulate CPU registers in a shared cyclic loop, evaluate status flags, and pursue secret objectives. Engineered with React Native and TypeScript.',
-    projectUrl: 'https://axyl-casc.github.io/CompiledWebsite/',
     demoUrl: 'https://axyl-casc.github.io/CompiledWebsite/',
     demoLabel: 'Project Website ↗',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.compiled.game',
@@ -480,7 +471,7 @@ export const projects: Project[] = [
         }
       ],
       results: [
-        'Successfully launched into closed testing on Google Play (com.compiled.game) for Android',
+        'Google Play distribution for Android (com.compiled.game)',
         'Engineered full 31-instruction card suite spanning Basic, Intermediate, and Advanced tiers',
         'Built interactive 20-lesson curriculum and full same-device pass-and-play multiplayer',
         'Official companion project website live at axyl-casc.github.io/CompiledWebsite'
@@ -506,8 +497,7 @@ export const projects: Project[] = [
       'Comprehensive validation verifying zero payload overages and deadline adherence'
     ],
     description: 'Effectively calculates possible routes for airplanes to deliver packages with a version made in Javascript and Haskell.',
-    projectUrl: 'https://github.com/axyl-casc/AirplaneGraphProject?tab=readme-ov-file#readme',
-    githubUrl: 'https://github.com/axyl-casc/AirplaneGraphProject',
+    githubUrl: 'https://github.com/axyl-casc/AirplaneGraphProject?tab=readme-ov-file#readme',
     section: 'other',
     tags: ['JavaScript', 'Haskell', 'Graph Algorithms', 'Optimization', 'Node.js']
   },
@@ -528,7 +518,6 @@ export const projects: Project[] = [
       'Clean, responsive distraction-free interface optimized for daily morning and evening reviews'
     ],
     description: 'A daily to-do list app I use for language learning and tracking whatever currently interests me.',
-    projectUrl: 'https://axyl-casc.github.io/TrainingGame/',
     demoUrl: 'https://axyl-casc.github.io/TrainingGame/',
     section: 'other',
     tags: ['Productivity', 'Habit Tracking', 'JavaScript', 'Tailwind CSS', 'Web App']
@@ -550,7 +539,6 @@ export const projects: Project[] = [
       'Responsive dark-mode UI with fast client-side calculations and zero external server dependencies'
     ],
     description: 'Generate probability distribution tables from custom sets of dice.',
-    projectUrl: 'https://axyl-casc.github.io/Dice-Simulator/',
     demoUrl: 'https://axyl-casc.github.io/Dice-Simulator/',
     section: 'other',
     tags: ['Probability', 'Simulation', 'Visualization', 'Plotly.js', 'JavaScript']
@@ -572,8 +560,7 @@ export const projects: Project[] = [
       'Accessible design with ARIA landmark regions, focus styling, and keyboard shortcut support'
     ],
     description: 'The source repository for this portfolio website, built with React, TypeScript, and Tailwind CSS.',
-    projectUrl: 'https://github.com/axyl-casc/portfolio_code',
-    githubUrl: 'https://github.com/axyl-casc/portfolio_code',
+    githubUrl: 'https://github.com/axyl-casc/portfolio_code?tab=readme-ov-file#readme',
     section: 'other',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Portfolio']
   },
@@ -594,8 +581,7 @@ export const projects: Project[] = [
       'Isolated multi-user profile switching without external authentication requirements'
     ],
     description: 'Offline-first bookshelf for Go materials, with search, bookmarks, and resume tracking across PDF/SGF/HTML files.',
-    projectUrl: 'https://github.com/axyl-casc/GoLibrary',
-    githubUrl: 'https://github.com/axyl-casc/GoLibrary',
+    githubUrl: 'https://github.com/axyl-casc/GoLibrary?tab=readme-ov-file#go-library',
     section: 'other',
     tags: ['Node.js', 'React', 'SQLite', 'Offline-first', 'Desktop App', 'Express.js']
   }

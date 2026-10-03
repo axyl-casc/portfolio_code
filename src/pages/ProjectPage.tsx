@@ -50,6 +50,8 @@ export function ProjectPage({ project }: { project: Project }) {
     }
   }
 
+  const liveUrl = project.demoUrl || (!project.projectUrl?.includes('github.com') ? project.projectUrl : undefined);
+
   return (
     <main id="main-content" className="site-main flex-1 space-y-10 py-6" tabIndex={-1}>
       {/* Top Header Card */}
@@ -74,9 +76,9 @@ export function ProjectPage({ project }: { project: Project }) {
 
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-3 shrink-0 self-start">
-            {project.demoUrl ? (
+            {liveUrl ? (
               <a
-                href={project.demoUrl}
+                href={liveUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-primary btn-sm sm:btn-md rounded-full px-6 shadow-md"
@@ -115,7 +117,7 @@ export function ProjectPage({ project }: { project: Project }) {
                 rel="noreferrer"
                 className="btn btn-accent btn-sm sm:btn-md rounded-full px-6 shadow-md text-slate-950 font-semibold"
               >
-                Google Play (Closed Test) ↗
+                Google Play ↗
               </a>
             )}
 
@@ -141,7 +143,7 @@ export function ProjectPage({ project }: { project: Project }) {
               </a>
             )}
 
-            {project.demoUrl && project.githubUrl && (
+            {liveUrl && project.githubUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
@@ -225,7 +227,8 @@ export function ProjectPage({ project }: { project: Project }) {
 
           {/* Thumbnail Strip */}
           {project.gallery!.length > 1 && (
-            <div className="flex gap-2.5 overflow-x-auto pb-2 pt-1">
+            // Leave room for the selected thumbnail's scale and ring at both scroll edges.
+            <div className="flex gap-2.5 overflow-x-auto p-2">
               {project.gallery!.map((item, index) => (
                 <button
                   key={index}

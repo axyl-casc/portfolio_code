@@ -23,7 +23,7 @@ export type Project = {
   longDescription?: string | string[];
   description?: string;
   highlights?: string[];
-  projectUrl: string;
+  projectUrl?: string;
   githubUrl?: string;
   demoUrl?: string;
   demoLabel?: string;
