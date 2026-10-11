@@ -349,7 +349,7 @@ export function HomePage() {
               </div>
               <h3 className="text-lg font-bold text-base-content">LLM APIs &amp; Developer Tooling</h3>
               <p className="text-sm text-base-content/85 leading-relaxed">
-                Building workflows with Claude, OpenAI, and Gemini APIs, structured schema outputs, and prompt architectures. Daily power-user leveraging modern AI assistants (Gemini, Antigravity, Claude, Codex) for accelerated code delivery and automated testing.
+                Building workflows with Claude, OpenAI, and Gemini APIs, structured schema outputs, and prompt architectures. Daily power-user leveraging modern AI assistants (Cursor, Cline, Gemini, Antigravity, Claude, Codex) for accelerated code delivery and automated testing.
               </p>
             </div>
             <div className="text-xs text-accent font-semibold pt-3 border-t border-base-content/10">
