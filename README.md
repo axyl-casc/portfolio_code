@@ -129,6 +129,10 @@ To update portfolio content, edit data/content files in `src/`:
 
 If you add new tags in project/hobby content, they will automatically work with the tag page route (`/tags/:tag`) as long as naming remains consistent.
 
+The custom PC builds, Raspberry Pi handheld, and Debian home lab are separate entries at the end of `src/projects.ts`, under the existing `other` section. Subject categories use the existing tags rather than a separate category system. The featured software ordering is preserved.
+
+These entries currently use the existing text-only layout because no project photographs are available. To add photographs later, place them in a project-specific folder under `src/assets/images/projects/`, import them in `src/projectAssets.ts`, and set the entry's `thumbnail` and `gallery` fields. Use descriptive gallery captions, which also provide alt text on the detail page. No placeholder image URLs or external project links are needed.
+
 ---
 
 ## Accessibility Notes

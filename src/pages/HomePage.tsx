@@ -183,7 +183,7 @@ export function HomePage() {
               href="/other_projects"
               className="btn btn-outline btn-sm rounded-full font-medium"
             >
-              All Projects (14+) →
+              All Projects ({projects.length}) →
             </a>
           </div>
         </div>
@@ -205,9 +205,9 @@ export function HomePage() {
         {/* Explore More Callout */}
         <div className="p-6 rounded-2xl bg-base-200/60 border border-base-content/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h3 className="font-bold text-base text-base-content">Want to explore all 14+ software projects?</h3>
+            <h3 className="font-bold text-base text-base-content">Want to explore all {projects.length} projects?</h3>
             <p className="text-sm text-base-content/75 mt-0.5">
-              Includes CPU scheduling visualizers, a custom Linux shell, offline bookshelf tools, and optimization simulators.
+              Includes software tools, custom computer builds, a Raspberry Pi handheld, and a Debian home lab.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2.5 shrink-0">

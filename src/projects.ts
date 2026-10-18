@@ -584,5 +584,74 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/axyl-casc/GoLibrary?tab=readme-ov-file#go-library',
     section: 'other',
     tags: ['Node.js', 'React', 'SQLite', 'Offline-first', 'Desktop App', 'Express.js']
+  },
+  // Hardware and infrastructure projects follow the existing software entries.
+  // Photographs can be added through thumbnail and gallery using projectAssets.ts.
+  {
+    slug: 'custom-pc-builds-operating-systems',
+    title: 'Custom PC Builds & Operating System Configuration',
+    shortDescription:
+      'I built and configured multiple custom computers with Windows and Linux, exploring dual boot, graphical desktops, CLI-only installations, and headless administration.',
+    longDescription: [
+      'I have built numerous custom desktop computers from individual components, working through component selection, hardware compatibility, assembly, operating system installation, and troubleshooting. These builds gave me practical experience with processors, motherboards, memory, storage, and peripherals as parts of a complete computing system.',
+      'Beyond hardware assembly, I have installed and configured Windows and Linux across different machines. I have also set up dual-boot environments with multiple operating systems on the same computer, selectable during startup, and explored BIOS/UEFI settings, boot configuration, and storage partitioning.',
+      'I have worked with graphical desktop environments, CLI-only installations without a graphical desktop, and headless computers operated without locally connected displays or input peripherals. Headless operation and CLI-only installation describe different aspects of a system, and my experience includes both.',
+      'Working with minimal installations and command-line interfaces helped me understand operating system behavior beyond the graphical interface. Troubleshooting hardware compatibility, installation failures, and boot problems developed my ability to configure and maintain different computing environments.'
+    ],
+    highlights: [
+      'I selected compatible components and assembled numerous custom desktop computers.',
+      'I installed and configured Windows and Linux across multiple machines.',
+      'I created dual-boot environments with operating systems selectable at startup.',
+      'I explored BIOS/UEFI settings, boot processes, and storage partitioning.',
+      'I configured graphical desktop environments and CLI-only installations.',
+      'I worked with headless systems without locally connected displays or input devices.',
+      'I troubleshot hardware compatibility, operating system installation, and boot problems.'
+    ],
+    section: 'other',
+    tags: ['Hardware', 'Operating Systems', 'Windows', 'Linux', 'System Administration', 'Dual Boot', 'BIOS / UEFI', 'Storage Partitioning', 'CLI', 'Headless Computing', 'Troubleshooting']
+  },
+  {
+    slug: 'raspberry-pi-handheld-computer',
+    title: 'Custom Raspberry Pi Handheld Computer',
+    shortDescription:
+      'I designed and built a Raspberry Pi handheld computer with a custom 3D-printed enclosure, combining Linux configuration, embedded computing, and physical hardware prototyping.',
+    longDescription: [
+      'I designed and built a custom handheld computer around a Raspberry Pi, using a custom 3D-printed enclosure to create a portable computing device. This completed build combined hardware assembly, physical prototyping, and Linux system configuration.',
+      'Integrating the computing hardware into a compact enclosure gave me hands-on experience with component placement and the relationship between physical hardware constraints and software configuration. I explored how to bring individual components together into a complete small-form-factor computer.',
+      'I developed the device independently, years before the Steam Deck was released. It shares the general concept of a portable handheld computer with later devices, but its design was developed before the Steam Deck existed.',
+      'The project helped me connect embedded computing, 3D printing, and operating system configuration through a practical hardware build.'
+    ],
+    highlights: [
+      'I built a portable computer around Raspberry Pi hardware.',
+      'I used a custom 3D-printed enclosure to create a handheld form factor.',
+      'I experimented with physical component placement and hardware integration in a compact design.',
+      'I worked with Linux and Raspberry Pi system configuration.',
+      'I combined embedded computing, hardware assembly, and physical prototyping in a completed build.'
+    ],
+    section: 'other',
+    tags: ['Raspberry Pi', 'Linux', '3D Printing', 'Embedded Systems', 'Hardware', 'Hardware Integration', 'Physical Prototyping', 'Portable Computing']
+  },
+  {
+    slug: 'debian-home-lab-self-hosted-server',
+    title: 'Debian Home Lab & Self-Hosted Server',
+    shortDescription:
+      'I built and maintain a dedicated physical Debian server for web hosting, multiplayer game servers, application deployment, and ongoing backend and networking experiments.',
+    longDescription: [
+      'I built and configured a dedicated physical server computer running Debian Linux. It serves as my ongoing personal home lab, self-hosted infrastructure platform, and programming experimentation environment, separate from my primary development computer.',
+      'The machine hosts web services and dedicated servers for multiple multiplayer games. I also use it to deploy personal projects, test applications, and experiment with backend services and server-side technologies.',
+      'Maintaining this server gives me hands-on experience with the infrastructure underneath software applications. I work with Linux command-line administration, server configuration, networking, and remote management through SSH, and troubleshoot service configuration, deployment, and operating system problems.',
+      'I continue to expand the home lab as I explore programming languages, web technologies, and networking configurations. It is a reusable, general-purpose environment for hosting services and running software experiments.'
+    ],
+    highlights: [
+      'I built and configured a dedicated physical server and installed Debian Linux.',
+      'I administer the system through Linux command-line tools and remote access with SSH.',
+      'I host web services, personal applications, and dedicated servers for multiple multiplayer games.',
+      'I use the machine to deploy and test programming projects in a separate Linux environment.',
+      'I experiment with backend services, server-side applications, and networking configurations.',
+      'I maintain persistent services and troubleshoot configuration, deployment, and operating system problems.',
+      'I continue to develop the server as a general-purpose home lab for software experiments.'
+    ],
+    section: 'other',
+    tags: ['Debian Linux', 'Linux', 'System Administration', 'Networking', 'Self-Hosting', 'Server', 'SSH', 'CLI', 'Web Hosting', 'Game Servers', 'Application Deployment', 'Backend Development']
   }
 ];

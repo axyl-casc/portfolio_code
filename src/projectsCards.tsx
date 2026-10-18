@@ -13,7 +13,7 @@ export const featuredProjects: CardItem[] = [
   {
     title: 'Other Projects',
     href: '/other_projects',
-    description: 'Explore additional projects, including software tools, data visualizations, and experimental applications.',
+    description: 'Explore additional projects, including software tools, custom hardware builds, and self-hosted infrastructure.',
     tags: []
   }
 ];

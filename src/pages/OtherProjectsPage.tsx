@@ -19,7 +19,7 @@ export function OtherProjectsPage() {
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight text-primary">Other Projects</h2>
             <p className="mt-2 text-base text-base-content/85 max-w-2xl leading-relaxed">
-              Explore additional software tools, systems programming projects, educational games, and experimental applications.
+              Explore additional software tools, systems programming projects, custom hardware builds, and self-hosted infrastructure.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2 self-start md:self-center">
