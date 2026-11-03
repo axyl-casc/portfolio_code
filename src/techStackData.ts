@@ -436,7 +436,7 @@ export const techItems: TechItem[] = [
       'Deep comprehension of memory layouts, cache alignments, and compiler instruction lowering'
     ],
     projects: [
-      { name: 'Compiled (Android Strategy Game)', slug: 'assembly-board-game', url: 'https://axyl-casc.github.io/CompiledWebsite/' }
+      { name: 'Compiled (iOS & Android Strategy Game)', slug: 'assembly-board-game', url: 'https://axyl-casc.github.io/CompiledWebsite/' }
     ],
     tags: ['Assembly', 'Systems Programming', 'Game Development'],
     featured: false
@@ -643,7 +643,7 @@ export const techItems: TechItem[] = [
       { name: 'Portfolio Website', slug: 'axyl-casc-portfolio-website', url: 'https://github.com/axyl-casc/portfolio_code' },
       { name: 'Fancy Pants Outfitters Demo', slug: 'fancy-pants-outfitters-react-demo', url: 'https://acare3.github.io/4513_2_website/' },
       { name: 'Infinite Mind Games Wiki', slug: 'infinite-mind-games-wiki-docs', url: 'https://infinite-mind-pictures-inc.github.io/Infinite-Mind-Wiki/' },
-      { name: 'Compiled (Android Strategy Game)', slug: 'assembly-board-game', url: 'https://axyl-casc.github.io/CompiledWebsite/' },
+      { name: 'Compiled (iOS & Android Strategy Game)', slug: 'assembly-board-game', url: 'https://axyl-casc.github.io/CompiledWebsite/' },
       { name: 'CPU Scheduler', slug: 'cpu-scheduler', url: 'https://axyl-casc.github.io/Scheduler-Designer/' },
       { name: 'Daily Training Game', slug: 'daily-training-game', url: 'https://axyl-casc.github.io/TrainingGame/' },
       { name: 'Dice Simulator', slug: 'dice-simulator', url: 'https://axyl-casc.github.io/Dice-Simulator/' }
@@ -772,7 +772,7 @@ export const PROJECT_STACK_PROFILES: ProjectStackProfile[] = [
   {
     projectName: 'Companion Baduk (Beginner GO AI Game)',
     projectSlug: 'beginner-go-ai-game',
-    liveUrl: '/projects/beginner-go-ai-game',
+    liveUrl: 'https://axyl-casc.github.io/CompanionBadukWebsite/',
     role: 'AI Logic Developer & UI Integrator',
     summary: 'Educational Go game tailored for newcomers, featuring transparent heuristic AI opponents, step-by-step rule explanations, packaged as a standalone desktop Electron app.',
     frontend: ['Data Viz & Board Interfaces (Canvas / WGo.js)', 'Vanilla HTML5 / CSS3 / JavaScript', 'Electron'],
@@ -836,11 +836,11 @@ export const PROJECT_STACK_PROFILES: ProjectStackProfile[] = [
     server: ['GitHub Pages & Actions CI/CD']
   },
   {
-    projectName: 'Compiled (Android Strategy Game)',
+    projectName: 'Compiled (iOS & Android Strategy Game)',
     projectSlug: 'assembly-board-game',
     liveUrl: 'https://axyl-casc.github.io/CompiledWebsite/',
     role: 'Android & Game Logic Developer',
-    summary: 'A tactical board game for Android where players manipulate 4-bit CPU registers in a shared cyclic memory loop and pursue hidden victory conditions.',
+    summary: 'A tactical board game for iOS and Android where players manipulate 4-bit CPU registers in a shared cyclic memory loop and pursue hidden victory conditions.',
     frontend: ['React Native / TypeScript'],
     backend: ['Virtual 4-Bit CPU Engine'],
     database: ['AsyncStorage (Local Persistence)'],

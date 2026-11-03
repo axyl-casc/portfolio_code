@@ -21,6 +21,8 @@ export const projects: Project[] = [
     ],
     description:
       'Desktop Go application built around beginner-friendly AI opponents and interactive learning tools. Includes a custom explainable Go engine using heuristic evaluation, Monte Carlo search, difficulty scaling, and human-readable move explanations.',
+    demoUrl: 'https://axyl-casc.github.io/CompanionBadukWebsite/',
+    demoLabel: 'Visit Website ↗',
     downloadUrl: 'https://store.steampowered.com/app/4698830/Companion_Baduk/',
     thumbnail: badukAssets.gameplay1,
     gallery: badukAssets.gallery,
@@ -366,16 +368,16 @@ export const projects: Project[] = [
   },
   {
     slug: 'assembly-board-game',
-    title: 'Compiled (Android Strategy Game)',
+    title: 'Compiled (iOS & Android Strategy Game)',
     shortDescription:
-      'A tactical strategy board game for Android where players manipulate CPU registers in a shared cyclic loop, evaluate status flags, and pursue secret objectives. Engineered with React Native and TypeScript.',
+      'A tactical strategy board game for iOS and Android where players manipulate CPU registers in a shared cyclic loop, evaluate status flags, and pursue secret objectives. Engineered with React Native and TypeScript.',
     longDescription: [
-      'Compiled is an original strategy board game and native mobile application engineered for Android using React Native and TypeScript. The game translates fundamental low-level computer architecture—including 4-bit registers, cyclic instruction queues, status flags, and arithmetic overflow—into an accessible, highly competitive tabletop experience.',
+      'Compiled is an original strategy board game and native mobile application engineered for iOS and Android using React Native and TypeScript. The game translates fundamental low-level computer architecture—including 4-bit registers, cyclic instruction queues, status flags, and arithmetic overflow—into an accessible, highly competitive tabletop experience.',
       'Players stage instruction cards into a shared circular program loop (configured with 8, 12, or 16 memory slots) and step a shared 4-bit CPU through execution. The machine features four shared registers (R0 through R3) and four hardware status flags (Z: Zero, N: Negative, C: Carry, and V: Overflow). Because all players manipulate the exact same machine state, every staged instruction has immediate consequences: a command placed to advance your own agenda might inadvertently hand an opponent their victory condition or trigger arithmetic wraparound that derails the table.',
       'The application provides two core gameplay modes: singleplayer against calibrated CPU rivals (1 to 3 opponents with adjustable difficulty) and same-device pass-and-play multiplayer for 2 to 4 local players. A comprehensive 20-lesson interactive tutorial curriculum introduces players to number bases, two\'s complement, register moves, branching, and overflow traps. Built with a privacy-first architecture, Compiled features 100% offline local gameplay with zero ads, analytics trackers, or cloud accounts.'
     ],
     highlights: [
-      'Native Android strategy game built with React Native and TypeScript, featuring high-DPI rendering and tactile haptic feedback',
+      'Native iOS and Android strategy game built with React Native and TypeScript, featuring high-DPI rendering and tactile haptic feedback',
       'Shared cyclic memory architecture (8, 12, or 16 slots) driving a deterministic virtual 4-bit CPU model',
       'Four shared general-purpose registers (R0–R3) and 4 status flags (Z: Zero, N: Negative, C: Carry, V: Overflow)',
       '31 executable instruction cards across 3 unlockable tiers: Basic (9), Intermediate (19), and Advanced (31)',
@@ -385,7 +387,7 @@ export const projects: Project[] = [
       'Privacy-first engineering: 100% local device state persistence with zero ads, analytics SDKs, or cloud accounts'
     ],
     description:
-      'A tactical strategy board game for Android where players manipulate CPU registers in a shared cyclic loop, evaluate status flags, and pursue secret objectives. Engineered with React Native and TypeScript.',
+      'A tactical strategy board game for iOS and Android where players manipulate CPU registers in a shared cyclic loop, evaluate status flags, and pursue secret objectives. Engineered with React Native and TypeScript.',
     demoUrl: 'https://axyl-casc.github.io/CompiledWebsite/',
     demoLabel: 'Project Website ↗',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.compiled.game',
@@ -393,7 +395,7 @@ export const projects: Project[] = [
     gallery: compiledAssets.gallery,
     caseStudy: {
       overview:
-        'Compiled is a mobile strategy game developed for Android that reimagines low-level assembly programming as a competitive tabletop board game. Players share a single cyclic memory buffer and four 4-bit registers, staging cards to trigger arithmetic, bitwise shifts, and conditional jumps while racing to fulfill secret objectives.',
+        'Compiled is a mobile strategy game developed for iOS and Android that reimagines low-level assembly programming as a competitive tabletop board game. Players share a single cyclic memory buffer and four 4-bit registers, staging cards to trigger arithmetic, bitwise shifts, and conditional jumps while racing to fulfill secret objectives.',
       problem:
         'Most educational programming games either present dry syntactic quizzes or overwhelm players with complex sandbox environments that feel like work. The challenge was to isolate the genuine thrill of systems programming—the joy of clever bitwise tricks, the surprise of arithmetic overflow, and the puzzle of instruction ordering—and package it into a fast-paced, accessible mobile game that non-programmers and computer scientists alike can enjoy.',
       solution:
@@ -478,7 +480,7 @@ export const projects: Project[] = [
       ]
     },
     section: 'other',
-    tags: ['Android', 'React Native', 'TypeScript', 'Assembly', 'Mobile App', 'Game Development', 'Education']
+    tags: ['iOS', 'Android', 'React Native', 'TypeScript', 'Assembly', 'Mobile App', 'Game Development', 'Education']
   },
   {
     slug: 'airplane-package-scheduler',

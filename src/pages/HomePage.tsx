@@ -56,7 +56,7 @@ export function HomePage() {
                 Axyl Carefoot-Schulz
               </h1>
               <p className="text-xl sm:text-2xl font-bold text-primary">
-                Software Developer
+                Software &amp; iOS Developer
               </p>
             </div>
 
@@ -240,10 +240,10 @@ export function HomePage() {
                 <span className="badge badge-accent badge-sm font-semibold text-slate-950 whitespace-nowrap py-2.5 px-3 h-auto leading-tight shrink-0">In Progress</span>
               </div>
               <p className="text-sm text-base-content/85 leading-relaxed">
-                A programming-inspired strategy board game where players move through executable commands, manipulate shared CPU registers, and evaluate condition flags while pursuing hidden objectives. Work-in-progress Android application built with React Native.
+                A programming-inspired strategy board game where players move through executable commands, manipulate shared CPU registers, and evaluate condition flags while pursuing hidden objectives. iOS and Android application built with React Native.
               </p>
               <div className="flex flex-wrap gap-1.5 pt-1">
-                {["TypeScript", "React Native", "Android", "Assembly Mechanics", "Game Design"].map((t) => (
+                {["TypeScript", "React Native", "iOS", "Android", "Assembly Mechanics", "Game Design"].map((t) => (
                   <span key={t} className="tag-badge" style={{ "--tag-hue": getTagHue(t) } as CSSProperties}>
                     {t}
                   </span>
