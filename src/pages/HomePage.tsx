@@ -23,7 +23,6 @@ export function HomePage() {
   });
   const [isProfileLoaded, setIsProfileLoaded] = useState(false);
 
-  // Filter 4 featured projects
   const featuredProjects = projects.filter((p) => p.section === "featured");
   const flagshipProject = featuredProjects.find((p) => p.slug === "beginner-go-ai-game");
   const otherFeatured = featuredProjects.filter((p) => p.slug !== "beginner-go-ai-game");
@@ -55,9 +54,6 @@ export function HomePage() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-base-content">
                 Axyl Carefoot-Schulz
               </h1>
-              <p className="text-xl sm:text-2xl font-bold text-primary">
-                Software &amp; iOS Developer
-              </p>
             </div>
 
             {/* Grounded pitch */}
@@ -151,9 +147,8 @@ export function HomePage() {
                 <img
                   src={profilePicture}
                   alt="Axyl Carefoot-Schulz"
-                  className={`relative h-40 w-40 sm:h-48 sm:w-48 rounded-full object-cover border-4 border-base-100 shadow-2xl transition-all duration-500 ${
-                    isProfileLoaded ? "opacity-100 blur-0 scale-100" : "opacity-0 blur-md scale-95"
-                  }`}
+                  className={`relative h-40 w-40 sm:h-48 sm:w-48 rounded-full object-cover border-4 border-base-100 shadow-2xl transition-all duration-500 ${isProfileLoaded ? "opacity-100 blur-0 scale-100" : "opacity-0 blur-md scale-95"
+                    }`}
                   loading="lazy"
                   decoding="async"
                   onLoad={() => setIsProfileLoaded(true)}
@@ -195,8 +190,7 @@ export function HomePage() {
           </div>
         )}
 
-        {/* Other 3 Featured Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {otherFeatured.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
@@ -217,82 +211,6 @@ export function HomePage() {
             <a href="/tech-stack" className="btn btn-outline btn-sm rounded-full w-full sm:w-auto text-center justify-center">
               Interactive Tech Stacks ↗
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── CURRENTLY BUILDING ─── */}
-      <section data-reveal className="space-y-6">
-        <div className="border-b border-base-content/10 pb-3">
-          <div className="inline-block text-xs font-bold uppercase tracking-wider text-accent mb-1">
-            Active Development
-          </div>
-          <h2 className="text-2xl font-bold tracking-tight text-base-content">
-            Currently Building
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="content-card p-6 flex flex-col justify-between space-y-4">
-            <div className="space-y-2">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <h3 className="text-lg font-bold text-base-content">Compiled</h3>
-                <span className="badge badge-accent badge-sm font-semibold text-slate-950 whitespace-nowrap py-2.5 px-3 h-auto leading-tight shrink-0">In Progress</span>
-              </div>
-              <p className="text-sm text-base-content/85 leading-relaxed">
-                A programming-inspired strategy board game where players move through executable commands, manipulate shared CPU registers, and evaluate condition flags while pursuing hidden objectives. iOS and Android application built with React Native.
-              </p>
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {["TypeScript", "React Native", "iOS", "Android", "Assembly Mechanics", "Game Design"].map((t) => (
-                  <span key={t} className="tag-badge" style={{ "--tag-hue": getTagHue(t) } as CSSProperties}>
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="pt-3 border-t border-base-content/10 flex flex-wrap items-center gap-3">
-              <a
-                href="/projects/assembly-board-game"
-                className="btn btn-primary btn-sm rounded-full"
-              >
-                Project Details →
-              </a>
-              <a
-                href="https://axyl-casc.github.io/CompiledWebsite/"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-outline btn-sm rounded-full"
-              >
-                Project Website ↗
-              </a>
-            </div>
-          </div>
-
-          <div className="content-card p-6 flex flex-col justify-between space-y-4">
-            <div className="space-y-2">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <h3 className="text-lg font-bold text-base-content">Companion Baduk Engine v2</h3>
-                <span className="badge badge-primary badge-sm font-semibold whitespace-nowrap py-2.5 px-3 h-auto leading-tight shrink-0">Engine Tuning</span>
-              </div>
-              <p className="text-sm text-base-content/85 leading-relaxed">
-                Refining move explanation heuristics, optimizing Monte Carlo tree depth on integrated CPUs, and packaging a cross-platform desktop installer with automated CI/CD releases.
-              </p>
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {["Python", "Electron", "Monte Carlo Search", "Explainable AI", "Desktop Packaging"].map((t) => (
-                  <span key={t} className="tag-badge" style={{ "--tag-hue": getTagHue(t) } as CSSProperties}>
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="pt-3 border-t border-base-content/10 flex items-center gap-3">
-              <a
-                href="/projects/beginner-go-ai-game"
-                className="btn btn-outline btn-sm rounded-full"
-              >
-                Read More →
-              </a>
-            </div>
           </div>
         </div>
       </section>

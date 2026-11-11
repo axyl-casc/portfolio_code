@@ -479,7 +479,7 @@ export const projects: Project[] = [
         'Official companion project website live at axyl-casc.github.io/CompiledWebsite'
       ]
     },
-    section: 'other',
+    section: 'featured',
     tags: ['iOS', 'Android', 'React Native', 'TypeScript', 'Assembly', 'Mobile App', 'Game Development', 'Education']
   },
   {
