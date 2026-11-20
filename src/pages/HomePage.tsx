@@ -1,8 +1,8 @@
-import { useState, type CSSProperties } from "react";
+import { useRef, useState, type CSSProperties } from "react";
 import { ProjectCard } from "../components/ProjectCard";
 import { projects } from "../projects";
 import { experienceItems } from "../experience";
-import { educationItems } from "../education";
+import { educationItems, type EducationItem } from "../education";
 import { getTagHue } from "../utils/tagColors";
 import { tagPath } from "../utils/tags";
 import resumeUrl from "../assets/Axyl - Resume.pdf?url";
@@ -14,6 +14,58 @@ const profilePictures = Object.values(
     query: "?url"
   })
 ) as string[];
+
+function DegreePreview({ diploma }: { diploma: NonNullable<EducationItem["diploma"]> }) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  return (
+    <>
+      <button
+        type="button"
+        aria-label="Open degree image preview"
+        aria-haspopup="dialog"
+        onClick={() => dialogRef.current?.showModal()}
+        className="block w-full max-w-xs shrink-0 cursor-zoom-in overflow-hidden rounded-xl border border-base-content/10 bg-base-200/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      >
+        <img
+          {...diploma.preview}
+          loading="lazy"
+          decoding="async"
+          className="block h-auto w-full"
+        />
+      </button>
+
+      <dialog ref={dialogRef} className="modal" aria-label="Degree image preview">
+        <div className="modal-box flex max-h-[calc(100dvh-2rem)] max-w-5xl flex-col gap-2 p-4">
+          <form method="dialog" className="flex justify-end">
+            <button type="submit" className="btn btn-circle btn-ghost btn-sm text-xl" aria-label="Close preview">
+              ×
+            </button>
+          </form>
+
+          <img
+            src={diploma.imageUrl}
+            alt={diploma.preview.alt}
+            loading="lazy"
+            decoding="async"
+            className="mx-auto block max-h-[calc(100dvh-9rem)] max-w-full rounded-lg object-contain"
+          />
+
+          <a
+            href={diploma.pdfUrl}
+            download="Axyl Carefoot-Schulz - Degree.pdf"
+            className="btn btn-outline btn-sm self-center rounded-full"
+          >
+            Download PDF
+          </a>
+        </div>
+        <form method="dialog" className="modal-backdrop">
+          <button type="submit" tabIndex={-1}>Close preview</button>
+        </form>
+      </dialog>
+    </>
+  );
+}
 
 export function HomePage() {
   const [profilePicture] = useState(() => {
@@ -45,7 +97,6 @@ export function HomePage() {
           <div className="space-y-6 max-w-2xl">
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               Software Developer · Calgary, Alberta
             </div>
 
@@ -64,9 +115,6 @@ export function HomePage() {
 
             {/* Quick Core Tech Strip */}
             <div className="space-y-2 pt-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-base-content/60">
-                Core Stack
-              </span>
               <div className="flex flex-wrap gap-1.5">
                 {[
                   "TypeScript",
@@ -506,19 +554,23 @@ export function HomePage() {
                 <span className="text-xs font-semibold text-primary">{item.meta}</span>
               </div>
 
-              <div className="space-y-2.5 text-sm text-base-content/85 leading-relaxed">
-                <p>
-                  • <strong>Degree &amp; Cognate:</strong> Bachelor of Science in Computer Science with a Mathematics cognate focused on linear algebra, statistics, graph theory, and network science.
-                </p>
-                <p>
-                  • <strong>Senior Capstone:</strong> Designed and developed Companion Baduk, an explainable Go AI desktop application coupling heuristic evaluation with Monte Carlo search.
-                </p>
-                <p>
-                  • <strong>Research &amp; Presentations:</strong> Presented exploratory mathematical data analysis and regression replication at Mount Royal University Research Days and the Alberta Mathematics Dialogue (AMD / PIMS).
-                </p>
-                <p>
-                  • <strong>Coursework Highlights:</strong> Operating Systems, Data Structures &amp; Algorithms, Software Engineering, Database Management Systems, Computability Theory, Computer Networks, and Artificial Intelligence.
-                </p>
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
+                <div className="flex-1 space-y-2.5 text-sm text-base-content/85 leading-relaxed">
+                  <p>
+                    • <strong>Degree &amp; Cognate:</strong> Bachelor of Science in Computer Science with a Mathematics cognate focused on linear algebra, statistics, graph theory, and network science.
+                  </p>
+                  <p>
+                    • <strong>Senior Capstone:</strong> Designed and developed Companion Baduk, an explainable Go AI desktop application coupling heuristic evaluation with Monte Carlo search.
+                  </p>
+                  <p>
+                    • <strong>Research &amp; Presentations:</strong> Presented exploratory mathematical data analysis and regression replication at Mount Royal University Research Days and the Alberta Mathematics Dialogue (AMD / PIMS).
+                  </p>
+                  <p>
+                    • <strong>Coursework Highlights:</strong> Operating Systems, Data Structures &amp; Algorithms, Software Engineering, Database Management Systems, Computability Theory, Computer Networks, and Artificial Intelligence.
+                  </p>
+                </div>
+
+                {item.diploma && <DegreePreview diploma={item.diploma} />}
               </div>
 
               <div className="flex flex-wrap gap-1.5 pt-2 border-t border-base-content/10">
